@@ -1,0 +1,12 @@
+mixin checkbox-item(id, checked=false, text)
+    label.checkbox-item.flex.items-center.gap-2.justify-start.cursor-pointer.shrink-0(for=id)
+        input.hidden(type="checkbox" id=id checked=checked class="peer/checkbox")
+        span.flex.items-center.justify-center.border.border-solid.border-black-150.rounded.shadow-xxxs.text-transparent.text-xxss.transition-colors(class="rounded-[4px] w-3.5 h-3.5 peer-checked/checkbox:bg-black-50 peer-checked/checkbox:text-gray-400 peer-checked/checkbox:shadow-xss")
+            +svg('icon-checkmark')
+        if text
+            span.text-sm.font-medium.text-black-100!= text
+
+mixin checkbox-rounded(id, checked=false)
+    label(for=id)
+        input.hidden(type="checkbox" id=id checked=checked class="peer/checkbox")
+        span.flex.items-center.justify-center.w-11.h-6.bg-gray-650.rounded-full.text-xxs.relative.cursor-pointer.transition-colors(class="after:content-[''] after:block after:absolute after:w-5 after:h-5 after:rounded-full after:top-0.5 after:left-0.5 after:bg-white-50 after:transition-all peer-checked/checkbox:bg-black-150 peer-checked/checkbox:after:translate-x-5")

@@ -1,0 +1,206 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+		meta(name='author' content='')
+		title ProstoCRM
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css')
+		link(href='./css/index.css' rel='stylesheet' type='text/css') 
+	body.index
+		.project-pages-block
+			.prjct-pgs__header
+				.container
+					h2 ProstoCRM
+			.prjct-pgs__body
+				.container
+					.prjct-pgs__ttl
+						.prjct-pgs__group
+							.firstColumm
+
+							.secondColumm
+		script(src='https://code.jquery.com/jquery-1.12.4.min.js' integrity='sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=' crossorigin='anonymous')
+		script.
+			var linksArray = [
+				'ui',
+				'auth-login',
+				'auth-register',
+				'auth-settings',
+				'auth-forgot-password',
+				'pcrm-goods',
+				'pcrm-goods-open-card',
+				'pcrm-settings-company',
+				'pcrm-settings-composition',
+				'pcrm-settings-payments',
+				'pcrm-settings-user',
+				'pcrm-settings-global',
+			]
+
+
+		script.
+			function createLink(count, linkUrl){
+				var template = '' + 
+				'<a href="' + linkUrl + '.html" class="prjct-pgs__link" data-name="' + linkUrl + '">' +
+					'<span class="prjct-pgs__count">' +
+						'<span>' +
+							(count + 1) +
+						'</span>' +
+					'</span>' +
+					'<strong class="prjct-pgs__ttl">' +
+						'<span>' +
+							linkUrl +
+						'</span>' +
+					'</strong>' +
+				'</a>';
+
+				return template;
+			}
+
+			var count = 0;
+
+			var linksgroupCount = linksArray.length / 2;
+
+			for (var i = 0; i < linksgroupCount; i++){
+				$('.firstColumm').append(createLink(count, linksArray[count]))
+				count++
+				console.log(count)
+			}
+
+			if (linksgroupCount % 1 != 0){
+				linksgroupCount = linksgroupCount - 1
+			}
+
+			for (var i = 0; i < linksgroupCount; i++){
+				$('.secondColumm').append(createLink(count, linksArray[count]))
+				count++
+			}
+		style.
+			html,
+			body {
+			height: 100%;
+			}
+			body.index {
+			position: relative;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			height: auto;
+			min-height: 100%;
+			background-image: url("data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QNTaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzExMSA3OS4xNTgzMjUsIDIwMTUvMDkvMTAtMDE6MTA6MjAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkI5MTI1OUEzMkU1MjExRTY4NkRGOUVCMDc1RERDNzY1IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkI5MTI1OUEyMkU1MjExRTY4NkRGOUVCMDc1RERDNzY1IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ODc2ZjhjY2UtMmU1Mi0xMWU2LTlkODQtODIxN2NkMWUwMzMxIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ODc2ZjhjY2UtMmU1Mi0xMWU2LTlkODQtODIxN2NkMWUwMzMxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAAwADAwERAAIRAQMRAf/EAE4AAQAAAAAAAAAAAAAAAAAAAAgBAQAAAAAAAAAAAAAAAAAAAAAQAQADAQAAAAAAAAAAAAAAABEAIUFhEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwBUUaPVYH//2Q==");
+			}
+			.project-pages-block {
+			font-size: 16px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			padding: 0 20px;
+			}
+			.tU {
+			text-transform: uppercase;
+			}
+			.prjct-pgs__header {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			width: 100%;
+			}
+			.prjct-pgs__header img{
+			max-height: 70px;
+			}
+			.prjct-pgs__header > .container {
+			padding-top: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid #ccc;
+			font-size: 20px;
+			}
+			.prjct-pgs__body {
+			padding-top: 10px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			}
+			.prjct-pgs__link {
+			position: relative;
+			display: block;
+			padding: 10px 10px 10px 40px;
+			color: #010101;
+			border: 1px solid transparent;
+			text-decoration: none !important;
+			border: 1px dashed #E110F3;
+			}
+			.prjct-pgs__link:hover {
+			color: #010101;
+			background-color: #f1f1f1;
+			}
+			.prjct-pgs__count {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 30px;
+			text-align: center;
+			line-height: 40px;
+			color: #000;
+			}
+			[data-name="main"]{
+			background: #fff;
+			border: 1px solid #000;
+			}
+			[data-name="main"] .prjct-pgs__ttl{
+			color:#3bb78c;
+			}
+			.prjct-pgs__count:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 0;
+			}
+			.prjct-pgs__count > span {
+			position: relative;
+			z-index: 1;
+			}
+			.prjct-pgs__ttl{
+			word-break: break-word;
+			}
+			.prjct-pgs__group {
+			padding-top: 10px;
+			}
+			body {
+			padding-bottom: 100px;
+			}
+			.prjct-pgs__footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			text-align: center;
+			z-index: 1;
+			background-color: #fff;
+			border-top: 1px solid #ccc;
+			}
+			.prjct-pgs__footer > .container {
+			padding-top: 20px;
+			padding-bottom: 20px;
+			}
+			.icon{
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			fill: currentColor;
+			display: inline-block;
+			vertical-align: top;
+			}
+			.icon-logo {
+			width: 5.0625em;
+			}
+			.icon-logo {
+			font-size: 42px;
+			}
+
+
+

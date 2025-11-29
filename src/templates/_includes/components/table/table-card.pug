@@ -1,0 +1,69 @@
+mixin table-card(data)
+	.flex.items-start.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.text-lg.font-regular.text-black-50 Замовлення #45635
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="lg:flex") Зберегти
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200  lg:flex")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Фото
+					.flex.items-start.justify-start.flex-wrap(class="gap-2.5")
+						.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-xxxs.w-50.h-50.relative(class="p-1.25")
+							img(src="images/good-big.png", alt="img")
+							button.flex.items-center.justify-center.w-10.h-10.absolute.rounded-md.z-2.text-xl.text-black-150.bg-white-200.transition-colors(type="button" class="bottom-2.5 right-2.5 hover:bg-gray-200")
+								+svg('icon-refresh')
+						label.flex.items-center.justify-center.w-25.h-25.border.border-dashed.border-gray-500.cursor-pointer.transition-colors(for="input_file_image" class="hover:bg-white-100")
+							input(type="file" id="input_file_image" class="hidden")
+							span.w-5.h-5.flex.items-center.justify-center.text-xl
+								+svg('icon-plus')
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Назва
+					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска пластикова S")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Категорія
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Тип
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Пластик")
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Властивості
+					.border.border-solid.border-gray-650.rounded-md.w-full
+						.flex.border-b.border-solid.border-gray-650.w-full
+							.flex.items-center.justify-start(class="w-44.5 min-h-12.5 p-2.5")
+								span.text-gray-250.text-sm.font-medium Назва
+							.flex.items-center.justify-start.grow(class="min-h-12.5 p-2.5")
+								span.text-gray-250.text-sm.font-medium Опції
+						.flex.border-b.border-solid.border-gray-650.w-full
+							.flex.items-center.justify-start(class="w-44.5 min-h-12.5 p-2.5")
+								input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							.flex.items-center.justify-start.grow(class="min-h-12.5 p-2.5")
+								span.text-gray-250.text-sm.font-medium Опції
+							.flex.items-center.justify-start.shrink-0(class="min-h-12.5 w-12.5 p-2.5")
+								button.flex.items-center.justify-center.text-base.text-gray-150.rounded-lg.bg-blue-200.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/80")
+									+svg('icon-ellipsis')
+						.flex.w-full
+							.flex.items-center.justify-start(class="w-44.5 min-h-12.5 p-2.5")
+								input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							.flex.items-center.justify-start.grow(class="min-h-12.5 p-2.5")
+								span.text-gray-250.text-sm.font-medium Опції
+							.flex.items-center.justify-start.shrink-0(class="min-h-12.5 w-12.5 p-2.5")
+								button.flex.items-center.justify-center.text-base.text-gray-150.rounded-lg.bg-blue-200.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/80")
+									+svg('icon-ellipsis')
+						button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.transition-colors(type="button" class="hover:bg-blue-200/80")
+							span.flex.items-center.justify-center.w-5.h-5.text-xl
+								+svg('icon-plus-circle')
+							span.font-medium Додати властивость
+		+relationships()

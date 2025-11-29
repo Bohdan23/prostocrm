@@ -1,0 +1,169 @@
+mixin pager(data)
+	.flex.items-center.justify-between.mt-auto(class="gap-1 lg:gap-2.5 pl-2.5")
+		.text-sm.text-gray-250 0 з 100 рядків обрано
+		.flex.items-center.justify-start.gap-8
+			.hidden.items-center.justify-start.gap-2(class="lg:flex")
+				.font-medium.text-sm.text-black-50 Рядків на сторінку:
+			.flex.items-center.justify-start(class="lg:gap-8")
+				.hidden.font-medium.text-sm.text-black-50(class="lg:flex") Сторінка 1 з 10
+				.flex.items-center.justify-start.gap-2
+					button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button")
+						+svg('icon-chevrons-left')
+					button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button" class="scale-x-[-1]")
+						+svg('icon-chevron')
+					button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button" class="scale-x-[-1]")
+						+svg('icon-chevrons-left')
+					button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button")
+						+svg('icon-chevron')
+
+mixin filters(data)
+	.flex.items-center.justify-between.w-full(class="gap-2.5")
+		.flex.items-center.justify-start(class="gap-2.5")
+			button.hidden.items-center.justify-center.shrink-0.w-10.h-10.border.border-solid.border-gray-650.rounded-md.text-xl.text-black-50.shadow-xss.transition-shadow(type="button" class="hover:shadow-none lg:flex")
+				+svg('icon-pie-chart')
+			input.w-full.shrink-0.w-full.max-w-37.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Пошук..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] lg:max-w-62.5")
+			button.flex.items-center.justify-center.shrink-0.w-10.h-10.border.border-solid.border-gray-650.rounded-md.text-xl.text-black-50.shadow-xss.transition-shadow(type="button" class="hover:shadow-none")
+				+svg('icon-filter')
+		.flex.items-center.justify-start(class="gap-2.5")
+			button.flex.items-center.justify-center.shrink-0.w-10.h-10.border.border-solid.border-gray-650.rounded-md.text-xl.text-black-50.shadow-xss.transition-shadow(type="button" class="hover:shadow-none")
+				+svg('icon-good-settings')
+			button.flex.items-center.justify-center.gap-2.bg-blue-100.rounded-md.text-white-50.min-w-10.h-10.px-2.transition-colors(type="button" class="hover:bg-blue-150 lg:px-4")
+				span.flex.items-center.justify-center.w-5.h-5.shrink-0.text-xl
+					+svg('icon-plus-circle')
+				span.hidden.text-sm.font-medium(class="lg:flex") Додати товар
+
+mixin table-list(data)
+	.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5")
+		+filters()
+		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto
+			table.w-full.text-sm.text-left
+				thead.sticky.top-0.left-0.bg-white-50
+					tr
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start(class="gap-2.5")
+								+checkbox-item('checkbox_1')
+								span.font-medium.text-gray-250 ID
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Назва
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") SKU
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Категорія
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Виробиник
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+				tbody
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start(class="gap-2.5")
+								+checkbox-item('checkbox_2')
+								span #45635
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start(class="gap-2.5")
+								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xxxs.shrink-0.overflow-hidden
+									img(src="/images/good-img.png", alt="img")
+								span Переноска пластикова S
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") A1-001
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Переноски
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Pet Store
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100(class="px-2 py-0.5 min-w-32.5") Активний
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-center
+								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
+									+svg('icon-edit')
+								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
+									+svg('icon-ellipsis')
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start(class="gap-2.5")
+								+checkbox-item('checkbox_3')
+								span #45635
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start(class="gap-2.5")
+								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xxxs.shrink-0.overflow-hidden
+									img(src="/images/good-img.png", alt="img")
+								span Переноска пластикова S
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") A1-001
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Переноски
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Pet Store
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.inline-flex.items-center.justify-center.bg-orange-50.rounded-md.text-orange-100(class="px-2 py-0.5 min-w-32.5") В процесі
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-center
+								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
+									+svg('icon-edit')
+								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
+									+svg('icon-ellipsis')
+		+pager()
+
+
+mixin table-list-small(data)
+	.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 max-w-77.5")
+		.flex.items-center.justify-between.w-full(class="gap-2.5")
+			.flex.items-center.justify-start(class="gap-2.5")
+				input.w-full.shrink-0.max-w-37.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Пошук..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] lg:max-w-60")
+				button.flex.items-center.justify-center.shrink-0.w-10.h-10.border.border-solid.border-gray-650.rounded-md.text-xl.text-black-50.shadow-xss.transition-shadow(type="button" class="hover:shadow-none")
+					+svg('icon-filter')
+		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-hidden
+			table.w-full.text-sm.text-left
+				thead.sticky.top-0.left-0.bg-white-50
+					tr
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start(class="gap-2.5")
+								span.font-medium.text-gray-250 ID
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Назва
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") SKU
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Категорія
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Виробиник
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
+						th.font-medium.text-gray-250(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+				tbody
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start(class="gap-2.5")
+								span #45635
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start.overflow-hidden.text-ellipsis(class="gap-2.5")
+								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xxxs.shrink-0.overflow-hidden
+									img(src="/images/good-img.png", alt="img")
+								span Переноска пластикова S
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") A1-001
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Переноски
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Pet Store
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100(class="px-2 py-0.5 min-w-32.5") Активний
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-center
+								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
+									+svg('icon-edit')
+								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
+									+svg('icon-ellipsis')
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start(class="gap-2.5")
+								span #45635
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-start.overflow-hidden.text-ellipsis(class="gap-2.5")
+								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xxxs.shrink-0.overflow-hidden
+									img(src="/images/good-img.png", alt="img")
+								span Переноска пластикова S
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") A1-001
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Переноски
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Pet Store
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.inline-flex.items-center.justify-center.bg-orange-50.rounded-md.text-orange-100(class="px-2 py-0.5 min-w-32.5") В процесі
+						td(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+							.flex.items-center.justify-center
+								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
+									+svg('icon-edit')
+								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
+									+svg('icon-ellipsis')
+		.flex.items-center.justify-between.mt-auto(class="gap-1 lg:gap-2.5 pl-2.5")
+			.hidden.font-medium.text-sm.text-black-50(class="lg:flex") Сторінка 1 з 10
+			.flex.items-center.justify-start.gap-2
+				button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button")
+					+svg('icon-chevrons-left')
+				button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button" class="scale-x-[-1]")
+					+svg('icon-chevron')
+				button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button" class="scale-x-[-1]")
+					+svg('icon-chevrons-left')
+				button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button")
+					+svg('icon-chevron')

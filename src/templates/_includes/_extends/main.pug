@@ -1,0 +1,24 @@
+//-----------   INCLUDES   --------------
+
+//- helpers
+include ../helpers/paths
+include ../helpers/_mixins
+
+//- components
+include ../components/head/head
+include ../components/checkbox-item/checkbox-item
+include ../components/relationships/relationships
+
+//-----------   INCLUDES END  --------------
+
+doctype html
+html(lang='en')
+	block head
+		+head({'title':'Hello'})
+	body.bg-gray-700.min-w-90
+		block styles
+		main
+			block content
+		block modals
+			
+		script(src=route.js + "main.js")

@@ -1,0 +1,23 @@
+mixin relationships(data)
+	.flex.flex-col.w-65.h-full.bg-gray-800.bg-gray-800.shrink-0
+		.flex.items-center.justify-between.w-full.border-b.border-l.border-solid.border-gray-500(class="p-2.5 gap-2")
+			span.text-black-50.text-sm Взаємозвʼязки
+			button.flex.items-center.justify-center.shrink-0.text-gray-150.text-xl(type="button" class="w-7.5 h-7.5")
+				+svg('icon-panel-right-close')
+		.flex.flex-wrap.items-start.justify-start.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+			+checkbox-item('checkbox_15', false, `Врахувати фільтри`)
+			+filter-piece({icon: 'icon-filter', text: 'Магазин: “КітПес”'})
+			+filter-piece({icon: 'icon-filter', text: 'Покупець: “Іван Довгий”'})
+			+filter-piece({icon: 'icon-filter', text: 'Магазин: “єЄкомерс”'})
+		.flex.flex-wrap.items-start.justify-start.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+			+checkbox-item('checkbox_15', false, `Врахувати діапазон дат`)
+			+filter-piece({icon: 'icon-filter', text: '06 Чер - 03 Лип, 2025'})
+
+
+
+mixin filter-piece(data)
+	.flex.items-center.justify-center.gap-1.bg-blue-200.shadow-xss.text-xs.text-gray-150.font-medium.rounded-md(class="h-5 py-0.5 px-2")
+		.flex.items-center.justify-center.w-3.h-3.shrink-0
+			+svg(data.icon)
+		span!= data.text
+		

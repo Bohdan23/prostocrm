@@ -1,0 +1,37 @@
+mixin notifications(data)
+    .notifications.z-100.fixed.left-0.top-0.w-full.h-full.pointer-events-none.opacity-0.transition-all(class="bg-black/[.8]")
+        .flex.flex-col.items-start.w-full.h-full.bg-dark(class="md:w-100 md:ml-auto md:shadow-3xl")
+            .flex.items-center.justify-between.w-full.h-13.bg-basee.shrink-0(class="py-2.5 px-2 md:h-20 md:py-6 md:px-6")
+                .flex.items-center.justify-start.gap-x-4
+                    button.notifications-close.w-8.h-8.hidden.text-secondary.cursor-pointer.text-xl.transition-colors(type="button" class="md:flex md:items-center md:justify-center")
+                        +svg('icon-right-arrow')
+                    .text-white.text-sm.font-semibold(class="md:text-xl") Notifications
+                .flex.items-center.justify-start.gap-x-4
+                    .text-white.text-xs.font-medium(class="md:text-sm") Mark all as read
+                    button.notifications-close.flex.items-center.justify-center.w-8.h-8.text-white.transition-colors(type="button" class="md:hidden")
+                        +svg('icon-close')
+            .w-full.grow.flex.flex-col.items-start.p-2.overflow-hidden.overflow-y-auto(class="md:p-6")
+                //- if notifications length > 0
+                .w-full.flex.flex-col.items-start.justify-start.gap-y-2(class="md:gap-y-3")
+                    .w-full.grid.rounded-xl.bg-basee.gap-y-2(class="p-2.5")
+                        .flex.items-center.justify-between.gap-x-2
+                            .flex.items-center.justify-start.gap-x-2
+                                .flex.items-center.justify-center.w-5.h-5.shrink-0
+                                    img(src="images/luchi.png", alt="luchi")
+                                .text-white.font-bold.text-xs.uppercase LUCHI
+                            .text-secondary.text-xs 30 sec ago
+                        .text-white.font-medium.text-sm Someone boosted LUCHI by 50 energy
+                    .w-full.grid.rounded-xl.bg-basee.gap-y-2(class="p-2.5")
+                        .flex.items-center.justify-between.gap-x-2
+                            .flex.items-center.justify-start.gap-x-2
+                                .flex.items-center.justify-center.w-5.h-5.shrink-0
+                                    img(src="images/luchi.png", alt="luchi")
+                                .text-white.font-bold.text-xs.uppercase LUCHI
+                            .text-secondary.text-xs Yesterday, 22:34
+                        .text-white.font-medium.text-sm The Social task is complete! It's time to choose the winners
+                //- if notifications list is empty
+                .flex.flex-col.items-center.justify-center.w-full.h-full.gap-y-1.text-center
+                    .w-24.h-24.flex.items-center.justify-center
+                        img(src="images/bell.png", alt="bell")
+                    .text-white.text-base.font-semibold No notifications
+                    .text-secondary.text-sm New notifications will be added here when they become available.

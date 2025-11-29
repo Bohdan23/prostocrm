@@ -1,0 +1,14 @@
+mixin bottom-mob-bar(data)
+	.flex.items-start.justify-start.w-full.h-20.gap-5(class="py-2.5 shrink-0 lg:hidden")
+		button.js-sidebar-trigger.flex.items-center.justify-center.grow.h-10.rounded-xxxs.border.border-solid.border-gray-200.bg-white-50(type="button" class="gap-1.25 p-2.5")
+			span.flex.items-center.justify-center.w-5.h-5.text-xl
+				+svg('icon-menu')
+			span.text-xss.text-gray-150.font-medium Меню
+		button.flex.items-center.justify-center.grow.h-10.rounded-xxxs.border.border-solid.border-gray-200.bg-white-50(type="button" class="gap-1.25 p-2.5")
+			span.flex.items-center.justify-center.w-5.h-5.text-xl
+				+svg('icon-connections')
+			span.text-xss.text-gray-150.font-medium Звʼязки
+		button.flex.items-center.justify-center.grow.h-10.rounded-xxxs.border.border-solid.border-gray-200.bg-white-50(type="button" class="gap-1.25 p-2.5")
+			span.flex.items-center.justify-center.w-5.h-5.text-xl
+				+svg('icon-tabs')
+			span.text-xss.text-gray-150.font-medium Вкладки

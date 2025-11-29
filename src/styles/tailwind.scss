@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+    // --menu-inset: calc(100% + 6px);
+}
+
+@layer utilities {
+
+    // global styles
+    .icon {
+        @apply inline-block stroke-0 stroke-current fill-current;
+        width: 1em;
+        height: 1em;
+    }
+}

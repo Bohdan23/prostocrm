@@ -1,0 +1,108 @@
+mixin login(data)
+	.flex.flex-col.w-full.m-auto(class="max-w-105.5 py-2.5")
+		.w-full.flex.items-center.justify-center(class="pb-7.5")
+			img.h-15(src="images/svg/logo.svg", alt="logo")
+		form.w-full.bg-white-50.rounded-xss.border.border-solid.border-gray-650
+			.flex.items-center.justify-center.text-xl.font-semibold.text-gray-150.text-center.px-2.py-7.border-b.border-solid.border-gray-650 Авторизація
+			.flex.flex-col.items-center.justify-center.border-b.border-solid.border-gray-650.px-4.text-center(class="py-1.25 gap-2.5 sm:flex-row sm:px-8 sm:text-justify")
+				span.text-sm.text-gray-150.text-left Немає облікового запису?
+				a.flex.items-center.justify-center.gap-2.text-blue-50.transition-colors(href="javascript:void(0)" class="py-1 sm:py-2.5 hover:text-orange-100")
+					| Зареєструватись
+					.flex.items-center.justify-center.w-5.h-5.text-xl
+						+svg('icon-chevron')
+			.flex.flex-col.items-start.justify-start.px-4.py-5(class="gap-5 sm:px-8")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Email
+					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Ваш email ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Пароль
+					input.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.outline-none.transition-all(type="password" placeholder="Пароль ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-center.justify-between.w-full(class="gap-1.5 sm:flex-row")
+					+checkbox-item('checkbox_13', false, `Запам'ятати мене`)
+					a.flex.items-center.justify-center.text-blue-50.transition-colors(href="javascript:void(0)" class="hover:text-orange-100") Забули пароль?
+				button.flex.items-center.justify-center.w-full.h-10.rounded-md.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="hover:bg-blue-150") Увійти
+				.flex.items-center.justify-center.w-full(class="gap-2.5 before:content-[] before:block before:h-px before:bg-gray-650 before:mt-1 before:grow after:content-[] after:block after:h-px after:bg-gray-650 after:mt-1 after:grow")
+					span.flex.items-center.text-gray-250.text-sm  або
+				button.flex.items-center.justify-center.w-full.h-10.gap-2.rounded-md.bg-white-200.transition-colors(type="button" class="hover:bg-white-150")
+					span.flex.items-center.justify-center.w-5.h-5
+						img.w-full(src="images/svg/google.svg", alt="google")
+					span.text-sm.font-medium.text-black-100 Вхід Google
+
+mixin registration(data)
+	.flex.flex-col.w-full.m-auto(class="max-w-105.5 py-2.5")
+		.w-full.flex.items-center.justify-center(class="pb-7.5")
+			img.h-15(src="images/svg/logo.svg", alt="logo")
+		form.w-full.bg-white-50.rounded-xss.border.border-solid.border-gray-650
+			.flex.items-center.justify-center.text-xl.font-semibold.text-gray-150.text-center.px-2.py-7.border-b.border-solid.border-gray-650 Реєстрація
+			.flex.flex-col.items-center.justify-center.border-b.border-solid.border-gray-650.px-4.text-center(class="py-1.25 gap-2.5 sm:flex-row sm:px-8 sm:text-justify")
+				span.text-sm.text-gray-150 Вже є обліковий запис?
+				a.flex.items-center.justify-center.gap-2.text-blue-50.transition-colors(href="javascript:void(0)" class="py-1 sm:py-2.5 hover:text-orange-100")
+					| Увійти
+					.flex.items-center.justify-center.w-5.h-5.text-xl
+						+svg('icon-chevron')
+			.flex.flex-col.items-start.justify-start.px-4.py-5(class="gap-5 sm:px-8")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Email
+					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Ваш email ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Пароль
+					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="Пароль ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Підтвердження пароля
+					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="Пароль ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-center.justify-between.w-full(class="gap-1.5")
+					+checkbox-item('checkbox_14', false, `Згоден з умовами платформи`)
+				button.flex.items-center.justify-center.w-full.h-10.rounded-md.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="hover:bg-blue-150") Створити акаунт
+				.flex.items-center.justify-center.w-full(class="gap-2.5 before:content-[] before:block before:h-px before:bg-gray-650 before:mt-1 before:grow after:content-[] after:block after:h-px after:bg-gray-650 after:mt-1 after:grow")
+					span.flex.items-center.text-gray-600.text-sm  або
+				button.flex.items-center.justify-center.w-full.h-10.gap-2.rounded-md.bg-white-200.transition-colors(type="button" class="hover:bg-white-150")
+					span.flex.items-center.justify-center.w-5.h-5
+						img.w-full(src="images/svg/google.svg", alt="google")
+					span.text-sm.font-medium.text-black-100 Реєстрація Google
+
+mixin forgot(data)
+	.flex.flex-col.w-full.m-auto(class="max-w-105.5 py-2.5")
+		.w-full.flex.items-center.justify-center(class="pb-7.5")
+			img.h-15(src="images/svg/logo.svg", alt="logo")
+		form.w-full.bg-white-50.rounded-xss.border.border-solid.border-gray-650
+			.flex.items-center.justify-center.text-xl.font-semibold.text-gray-150.text-center.px-2.py-7.border-b.border-solid.border-gray-650 Відновлення пароля
+			.flex.flex-col.items-center.justify-center.border-b.border-solid.border-gray-650.px-4.text-center(class="py-1.25 gap-2.5 sm:flex-row sm:px-8 sm:text-justify")
+				span.text-sm.text-gray-150 Немає облікового запису?
+				a.flex.items-center.justify-center.gap-2.text-blue-50.transition-colors(href="javascript:void(0)" class="py-1 sm:py-2.5 hover:text-orange-100")
+					| Зареєструватись
+					.flex.items-center.justify-center.w-5.h-5.text-xl
+						+svg('icon-chevron')
+			.flex.flex-col.items-start.justify-start.px-4.py-5(class="gap-5 sm:px-8")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Введіть новий пароль
+					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="Пароль ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Повторіть пароль
+					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="Пароль ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+			button.flex.items-center.justify-center.gap-2.w-full.rounded-b-xss.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="min-h-17.5 hover:bg-blue-150")
+				span.flex.items-center.justify-center.w-5.h-5.text-xl.text-white-50.shrink-0
+					+svg('icon-checkmark')
+				| Зберегти
+
+mixin settings(data)
+	.flex.flex-col.w-full.m-auto(class="max-w-105.5 py-2.5")
+		.w-full.flex.items-center.justify-center(class="pb-7.5")
+			img.h-15(src="images/svg/logo.svg", alt="logo")
+		form.w-full.bg-white-50.rounded-xss.border.border-solid.border-gray-650
+			.flex.items-center.justify-center.text-xl.font-semibold.text-gray-150.text-center.px-2.py-7.border-b.border-solid.border-gray-650 Налаштування профілю
+			.flex.flex-col.items-start.justify-start.px-4.py-5(class="gap-5 sm:px-8")
+				label.flex.flex-col.items-center.mx-auto.justify-center.w-25.h-25.text-center.rounded-full.cursor-pointer.relative.transition-colors(for="input_file_image2" class="gap-1.25 before:content-[''] before:block before:absolute before:top-1/2 before:-translate-y-1/2 before:w-full before:h-full before:bg-upload-file-img before:bg-contain before:bg-no-repeat before:z-1 before:rounded-full before:pointer-events-none before:transition-transform before:duration-500 after:content-[''] after:block after:absolute after:top-1/2 after:-translate-y-1/2 after:w-22.5 after:h-22.5 after:z-2 after:rounded-full after:bg-gray-700 hover:before:rotate-90")
+					input(type="file" id="input_file_image2" class="hidden")
+					span.w-5.h-5.flex.items-center.justify-center.text-xl.relative.z-10
+						+svg('icon-plus')
+					span.flex.text-black-100.text-xs.relative.z-10.text-center Завантажити фото
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Ваше ім'я
+					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="Ім'я" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
+					span.text-sm.text-black-100.font-medium Ваше прізвище
+					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="Прізвище" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+			button.flex.items-center.justify-center.gap-2.w-full.rounded-b-xss.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="min-h-17.5 hover:bg-blue-150")
+				span.flex.items-center.justify-center.w-5.h-5.text-xl.text-white-50.shrink-0
+					+svg('icon-checkmark')
+				| Зберегти налаштування

@@ -1,0 +1,352 @@
+mixin settings-company(data)
+	.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-5")
+		.flex.items-center.min-h-9.rounded-md.w-full.p-1.bg-white-200
+			.w-full.flex.items-center.justify-start.overflow-x-auto.whitespace-nowrap
+				button.settings-tab-active.flex.items-center.justify-center.grow.text-center.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Компанія
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Платежі та рахунки
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Склад, одиниці та логістика
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Користувачі та доступ
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Загальні налаштування
+		.flex.items-center.justify-between.border-b.border-solid.border-gray-500(class="py-2.5 gap-2.5")
+			.text-lg.font-regular.text-black-50 Компанія
+			button.flex.items-center.justify-center.shrink-0.bg-blue-200.border.border-solid.border-gray-200.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-gray-200")
+				span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+					+svg('icon-save')
+				span.hidden(class="lg:flex") Зберегти
+		.flex.flex-col.items-start.justify-start.overflow-x-auto(class="gap-2.5")
+			.flex.flex-col.items-start.justify-start.gap-1.w-full.max-w-120
+				span.text-black-100.text-sm.font-medium Назва компанії
+				input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва компанії" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+			.flex.items-center.justify-start.w-full(class="gap-2.5")
+				.flex.flex-col.items-start.justify-start.gap-1.w-full(class="max-w-58.5")
+					span.text-black-100.text-sm.font-medium Тип курсу валют
+					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва компанії" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.gap-1.w-full(class="max-w-58.5")
+					span.text-black-100.text-sm.font-medium Базова валюта
+					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва компанії" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+			.flex.flex-col.items-start.justify-start(class="gap-2.5")
+				.flex.items-center.justify-start.gap-5
+					.text-sm.font-medium.text-gray-250.min-w-20 Валюта
+					.text-sm.font-medium.text-gray-250.min-w-15 Активна
+					.text-sm.font-medium.text-gray-250.min-w-65 Курс до базової
+					.text-sm.font-medium.text-gray-250.min-w-65 Оновлено
+				.flex.items-center.justify-start.gap-5
+					.text-sm.font-medium.text-gray-250.min-w-20
+						input.w-full.max-w-20.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Валюта" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="USD")
+					.text-sm.font-medium.text-gray-250.min-w-15
+						+checkbox-rounded('checkbox_id_1', true)
+					.text-sm.font-medium.text-gray-250.min-w-65
+						input.w-full.min-w-65.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Курс" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="39.2")
+					.text-sm.font-medium.text-gray-250.min-w-65
+						input.w-full.min-w-65.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Оновлено" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="2025-07-20")
+				.flex.items-center.justify-start.gap-5
+					.text-sm.font-medium.text-gray-250.min-w-20
+						input.w-full.max-w-20.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Валюта" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="EUR")
+					.text-sm.font-medium.text-gray-250.min-w-15
+						+checkbox-rounded('checkbox_id_2', true)
+					.text-sm.font-medium.text-gray-250.min-w-65
+						input.w-full.min-w-65.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Курс" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="39.2")
+					.text-sm.font-medium.text-gray-250.min-w-65
+						input.w-full.min-w-65.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Оновлено" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="2025-07-20")
+				.flex.items-center.justify-start.gap-5
+					.text-sm.font-medium.text-gray-250.min-w-20
+						input.w-full.max-w-20.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Валюта" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="GPB")
+					.text-sm.font-medium.text-gray-250.min-w-15
+						+checkbox-rounded('checkbox_id_3', false)
+					.text-sm.font-medium.text-gray-250.min-w-65
+						input.w-full.min-w-65.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Курс" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="39.2")
+					.text-sm.font-medium.text-gray-250.min-w-65
+						input.w-full.min-w-65.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Оновлено" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="2025-07-20")
+				.w-full.flex.items-center.justify-between(class="gap-2.5")
+					.flex.items-center.justify-start.gap-2
+						+checkbox-rounded('checkbox_id_4', false)
+						span.text-sm.font-medium.text-black-100 Автоматичне оновлення курсів
+					button.flex.items-center.justify-center.gap-2.text-black-100.px-4.h-10.bg-white-200.rounded-md.transition-colors(type="button" class="hover:bg-white-150")
+						span.w-5.h-5.flex.items-center.justify-center
+							+svg('icon-refresh')
+						span.text-sm.font-medium Оновити курси вручну
+			.flex.flex-col.items-start.justify-start.gap-1.w-full
+				span.text-black-100.text-sm.font-medium Дата створення / оновлення
+				input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.max-w-80.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Дата створення / оновлення" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+			.flex.items-start.justify-start.gap-2.w-full
+				+checkbox-rounded('checkbox_id_5', false)
+				span.text-sm.font-medium.text-black-100 Видалена
+
+mixin settings-payments(data)
+	.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden.overflow-y-auto(class="p-2.5 gap-5")
+		.flex.items-center.min-h-9.rounded-md.w-full.p-1.bg-white-200
+			.w-full.flex.items-center.justify-start.overflow-x-auto.whitespace-nowrap
+				button.flex.items-center.justify-center.grow.text-center.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Компанія
+				button.settings-tab-active.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Платежі та рахунки
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Склад, одиниці та логістика
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Користувачі та доступ
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Загальні налаштування
+		.flex.items-center.justify-between.border-b.border-solid.border-gray-500(class="py-2.5 gap-2.5")
+			.text-lg.font-regular.text-black-50 Платежі та рахунки
+			button.flex.items-center.justify-center.shrink-0.bg-blue-200.border.border-solid.border-gray-200.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-gray-200")
+				span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+					+svg('icon-save')
+				span.hidden(class="lg:flex") Зберегти
+		.flex.flex-col.items-start.justify-start.gap-5.w-full.max-w-120
+			.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5")
+				.flex.items-center.justify-between.w-full.gap-2
+					span.text-lg.text-black-50.font-regular Рахунки компанії
+					button.flex.items-center.justify-center.shrink-0.rounded-xxxs.text-xl.text-gray-150.border.border-solid.border-gray-200.bg-white-50.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-white-100")
+						+svg('icon-plus-circle')
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Назва рахунку
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Назва рахунку" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full(class="sm:w-37.5 sm:shrink-0")
+						span.text-sm.text-black-100.font-medium Валюта рахунку	
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Валюта рахунку" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Назва рахунку
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Назва рахунку" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full(class="sm:w-37.5 sm:shrink-0")
+						span.text-sm.text-black-100.font-medium Валюта рахунку	
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Валюта рахунку" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Назва рахунку
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Назва рахунку" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full(class="sm:w-37.5 sm:shrink-0")
+						span.text-sm.text-black-100.font-medium Валюта рахунку	
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Валюта рахунку" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+		.flex.flex-col.items-start.justify-startgap-5.w-full.max-w-120
+			.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5")
+				.flex.items-center.justify-between.w-full.gap-2
+					span.text-lg.text-black-50.font-regular Методи оплати
+					button.flex.items-center.justify-center.shrink-0.rounded-xxxs.text-xl.text-gray-150.border.border-solid.border-gray-200.bg-white-50.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-white-100")
+						+svg('icon-plus-circle')
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Тип
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Тип" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full(class="sm:w-65 sm:shrink-0")
+						span.text-sm.text-black-100.font-medium Комісія	
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Комісія" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.text-black-100.font-medium Прив’язка до рахунку
+					input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Прив’язка до рахунку" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.gap-2.py-2
+					+checkbox-rounded('checkbox_id_6', false)
+					span.text-sm.font-medium.text-black-100 Автоматичні комісії
+
+mixin settings-composition(data)
+	.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden.overflow-y-auto(class="p-2.5 gap-5")
+		.flex.items-center.min-h-9.rounded-md.w-full.p-1.bg-white-200
+			.w-full.flex.items-center.justify-start.overflow-x-auto.whitespace-nowrap
+				button.flex.items-center.justify-center.grow.text-center.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Компанія
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Платежі та рахунки
+				button.settings-tab-active.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Склад, одиниці та логістика
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Користувачі та доступ
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Загальні налаштування
+		.flex.items-center.justify-between.border-b.border-solid.border-gray-500(class="py-2.5 gap-2.5")
+			.text-lg.font-regular.text-black-50 Склад, одиниці та логістика
+			button.flex.items-center.justify-center.shrink-0.bg-blue-200.border.border-solid.border-gray-200.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-gray-200")
+				span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+					+svg('icon-save')
+				span.hidden(class="lg:flex") Зберегти
+		.flex.flex-col.items-start.justify-start.gap-5.w-full.max-w-120
+			.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5")
+				.flex.items-center.justify-between.w-full.gap-2
+					span.text-lg.text-black-50.font-regular Групи одиниць вимірювання
+					button.flex.items-center.justify-center.shrink-0.rounded-xxxs.text-xl.text-gray-150.border.border-solid.border-gray-200.bg-white-50.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-white-100")
+						+svg('icon-plus-circle')
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Назва
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Примітка
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Примітка" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+			.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5")
+				.flex.items-center.justify-between.w-full.gap-2
+					span.text-lg.text-black-50.font-regular Одиниці вимірювання
+					button.flex.items-center.justify-center.shrink-0.rounded-xxxs.text-xl.text-gray-150.border.border-solid.border-gray-200.bg-white-50.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-white-100")
+						+svg('icon-plus-circle')
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Назва
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full(class="sm:w-30 sm:shrink-0")
+						span.text-sm.text-black-100.font-medium Коротка назва
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Коротка назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Група
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Група" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Порядок сортування
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Порядок сортування" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.gap-2.py-2
+					+checkbox-rounded('checkbox_id_6', true)
+					span.text-sm.font-medium.text-black-100 Активна
+			.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5")
+				.flex.items-center.justify-between.w-full.gap-2
+					span.text-lg.text-black-50.font-regular Методи доставки
+					button.flex.items-center.justify-center.shrink-0.rounded-xxxs.text-xl.text-gray-150.border.border-solid.border-gray-200.bg-white-50.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-white-100")
+						+svg('icon-plus-circle')
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Назва
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Тип
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Тип" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.gap-2.py-2
+					+checkbox-rounded('checkbox_id_6', true)
+					span.text-sm.font-medium.text-black-100 Активна
+
+mixin settings-users(data)
+	.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden.overflow-y-auto(class="p-2.5 gap-5")
+		.flex.items-center.min-h-9.rounded-md.w-full.p-1.bg-white-200
+			.w-full.flex.items-center.justify-start.overflow-x-auto.whitespace-nowrap
+				button.flex.items-center.justify-center.grow.text-center.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Компанія
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Платежі та рахунки
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Склад, одиниці та логістика
+				button.settings-tab-active.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Користувачі та доступ
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Загальні налаштування
+		.flex.items-center.justify-between.border-b.border-solid.border-gray-500(class="py-2.5 gap-2.5")
+			.text-lg.font-regular.text-black-50 Користувачі та доступ
+			button.flex.items-center.justify-center.shrink-0.bg-blue-200.border.border-solid.border-gray-200.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-gray-200")
+				span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+					+svg('icon-save')
+				span.hidden(class="lg:flex") Зберегти
+		.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5")
+			.flex.items-center.justify-between.w-full.gap-2
+				span.text-lg.text-black-50.font-regular CRM користувачі
+				button.flex.items-center.justify-center.shrink-0.rounded-xxxs.text-xl.text-gray-150.border.border-solid.border-gray-200.bg-white-50.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-white-100")
+					+svg('icon-plus-circle')
+			.w-full.flex.overflow-x-auto
+				table.w-full.text-sm.text-left.min-w-xl
+					thead.sticky.top-0.left-0.bg-white-50
+						tr
+							th.font-medium.text-gray-250(class="p-1.25 whitespace-nowrap") Логін
+							th.font-medium.text-gray-250(class="p-1.25 whitespace-nowrap") Email
+							th.font-medium.text-gray-250(class="p-1.25 whitespace-nowrap") Компанія
+							th.font-medium.text-gray-250(class="p-1.25 whitespace-nowrap") Права
+							th.font-medium.text-gray-250(class="p-1.25 whitespace-nowrap") Роль
+							th.font-medium.text-gray-250(class="p-1.25 whitespace-nowrap") Ліміт компаній
+							th.font-medium.text-gray-250(class="p-1.25 whitespace-nowrap") Активний
+					tbody
+						tr.align-top
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Імя" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Email" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Компанія" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								.flex.flex-col.items-start.justify-start(class="gap-2.5")
+									+checkbox-item('checkbox_4', true, 'Створити')
+									+checkbox-item('checkbox_5', true, 'Редагувати')
+									+checkbox-item('checkbox_6', true, 'Видалити')
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Роль" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.text-center.outline-none.transition-all(type="text" placeholder="Ліміт" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								.flex.items-start.justify-center.gap-2.py-2
+									+checkbox-rounded('checkbox_id_6', true)
+						tr.align-top.border-t.border-solid.border-gray-650
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Імя" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Email" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Компанія" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								.flex.flex-col.items-start.justify-start(class="gap-2.5")
+									+checkbox-item('checkbox_4', true, 'Створити')
+									+checkbox-item('checkbox_5', true, 'Редагувати')
+									+checkbox-item('checkbox_6', false, 'Видалити')
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Роль" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.text-center.outline-none.transition-all(type="text" placeholder="Ліміт" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								.flex.items-start.justify-center.gap-2.py-2
+									+checkbox-rounded('checkbox_id_6', true)
+						tr.align-top.border-t.border-solid.border-gray-650
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Імя" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Email" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Компанія" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								.flex.flex-col.items-start.justify-start(class="gap-2.5")
+									+checkbox-item('checkbox_4', true, 'Створити')
+									+checkbox-item('checkbox_5', true, 'Редагувати')
+									+checkbox-item('checkbox_6', false, 'Видалити')
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Роль" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								input.w-full.shrink-0.min-w-40.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.text-center.outline-none.transition-all(type="text" placeholder="Ліміт" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							td(class="px-1.25 py-2.5 whitespace-nowrap")
+								.flex.items-start.justify-center.gap-2.py-2
+									+checkbox-rounded('checkbox_id_6', false)
+
+mixin settings-global(data)
+	.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden.overflow-y-auto(class="p-2.5 gap-5")
+		.flex.items-center.min-h-9.rounded-md.w-full.p-1.bg-white-200
+			.w-full.flex.items-center.justify-start.overflow-x-auto.whitespace-nowrap
+				button.flex.items-center.justify-center.grow.text-center.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Компанія
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Платежі та рахунки
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Склад, одиниці та логістика
+				button.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Користувачі та доступ
+				button.settings-tab-active.flex.items-center.justify-center.grow.text-center.text-gray-250.text-sm.font-medium.transition-all(type="button" class="px-3.5 py-1 xl:px-2.5 xl:min-w-[20%] xl:px-1.75") Загальні налаштування
+		.flex.items-center.justify-between.border-b.border-solid.border-gray-500(class="py-2.5 gap-2.5")
+			.text-lg.font-regular.text-black-50 Загальні налаштування
+			button.flex.items-center.justify-center.shrink-0.bg-blue-200.border.border-solid.border-gray-200.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-gray-200")
+				span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+					+svg('icon-save')
+				span.hidden(class="lg:flex") Зберегти
+		.flex.flex-col.items-start.justify-start.gap-5.w-full.max-w-125
+			.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5")
+				.flex.items-center.justify-between.w-full
+					span.text-lg.text-black-50.font-regular Ключові налаштування системи
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.text-black-100.font-medium Формат дати	
+					input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Прив’язка до рахунку" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5 sm:flex-row")
+					.flex.flex-col.items-start.justify-start.grow.gap-1.w-full(class="sm:w-auto")
+						span.text-sm.text-black-100.font-medium Валюта за замовчуванням
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="Валюта" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full(class="sm:w-65 sm:shrink-0")
+						span.text-sm.text-black-100.font-medium Ставка ПДВ (%)	
+						input.w-full.shrink-0.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="text" placeholder="ПДВ %" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.gap-2.py-2
+					+checkbox-rounded('checkbox_id_7', true)
+					span.text-sm.font-medium.text-black-100 Автоматичні знижки
+			.flex.flex-col.items-start.justify-start.w-full(class="gap-2.5")
+				.flex.items-center.justify-between.w-full
+					span.text-lg.text-black-50.font-regular Технічне адміністрування
+				.flex.flex-col.justify-start.items-start.w-full
+					.flex.flex-col.items-start.justify-start.w-full.border-b.border-solid.border-gray-700(class="pb-2.5 sm:flex-row sm:w-auto sm:items-center")
+						.text-sm.text-black-100.font-medium.py-2.pr-2(class="min-w-37.5 sm:py-4") Остання міграція
+						.text-sm.text-gray-250.py-4.px-2(class="min-w-40") 2025-07-15 16:45
+						.flex
+							button.flex.items-center.justify-center.min-w-50.gap-2.px-4.bg-white-200.min-h-9.rounded-md.text-black-100.text-sm.font-medium.transition-colors(type="button" class="hover:bg-white-150")
+								span.flex.items-center.justify-center.w-4.h-4.text-base.text-black-150.shrink-0
+									+svg('icon-play-circle')
+								span Запустити міграції
+					.flex.flex-col.items-start.justify-start.w-full.border-b.border-solid.border-gray-700(class="py-2.5 sm:flex-row sm:w-auto sm:items-center")
+						.text-sm.text-black-100.font-medium.py-2.pr-2(class="min-w-37.5 sm:py-4") Активні токени
+						.text-sm.text-gray-250.py-4.px-2(class="min-w-40") 24
+						.flex
+							button.flex.items-center.justify-center.min-w-50.gap-2.px-4.bg-white-200.min-h-9.rounded-md.text-black-100.text-sm.font-medium.transition-colors(type="button" class="hover:bg-white-150")
+								span.flex.items-center.justify-center.w-4.h-4.text-base.text-black-150.shrink-0
+									+svg('icon-bucket')
+								span Очистити всі токени
+					.flex.flex-col.items-start.justify-start.w-full(class="py-2.5 sm:flex-row sm:w-auto sm:items-center")
+						.text-sm.text-black-100.font-medium.py-2.pr-2(class="min-w-37.5 sm:py-4") Активні сесії
+						.text-sm.text-gray-250.py-4.px-2(class="min-w-40") 108
+						.flex
+							button.flex.items-center.justify-center.min-w-50.gap-2.px-4.bg-white-200.min-h-9.rounded-md.text-black-100.text-sm.font-medium.transition-colors(type="button" class="hover:bg-white-150")
+								span.flex.items-center.justify-center.w-4.h-4.text-base.text-black-150.shrink-0
+									+svg('icon-bucket')
+								span Очистити всі cесії

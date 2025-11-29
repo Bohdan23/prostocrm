@@ -1,0 +1,45 @@
+extends _includes/_extends/main
+
+include _includes/components/modals/modals
+
+block head
+	+head({'title':'ui'})
+
+block styles
+	style.
+		.vue-modal {
+			min-width: 360px;
+			opacity: 0;
+			visibility: hidden;
+			transform: translate(0, -40px);
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			pointer-events: none;
+			bottom: 0;
+			margin: auto;
+			z-index: 300;
+			overflow-x: hidden;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+		}
+
+		.vue-modal__inner {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+block content
+	.pb-14.px-2.pt-25(class="md:pt-19.5 md:px-6 md:pb-6")
+		.container.mx-auto(class="md:container xl:container 2xl:container")
+			.flex.justify-start.items-start.flex-wrap.gap-6
+				button.js-open-modal.flex.justify-center.items-center.bg-primary.h-8.px-4.rounded-lg.text-white.font-bold.text-sm.transition-colors(type="button" class="md:px-5 md:h-10 gap-x-2.5 hover:bg-primary/80" data-modal="1")
+					span Modal token info
+	
+block modals
+	.modal-overlay.opacity-0.fixed.top-0.left-0.w-full.h-full.z-40.pointer-events-none(class="bg-black/[.8]")

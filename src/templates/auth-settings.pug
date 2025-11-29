@@ -1,0 +1,12 @@
+extends _includes/_extends/main
+
+include _includes/components/auth/auth
+
+block head
+	+head({'title':'Registration'})
+
+
+block content
+	.w-full.h-svh(class="py-2.5")
+		.mx-auto.h-full.flex.items-center.justify-center.max-w-480(class="px-2.5")
+			+settings()

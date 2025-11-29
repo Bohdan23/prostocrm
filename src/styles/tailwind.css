@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@theme {}
+@layer utilities {
+  .icon {
+    @apply inline-block stroke-0 stroke-current fill-current;
+    width: 1em;
+    height: 1em;
+  }
+  .sidebar-item-active .sidebar-item-icon {
+    @apply rotate-90;
+  }
+  .sidebar-subitem-active {
+    @apply bg-gray-450 text-blue-50;
+  }
+  .sidebar.is-minimized .sidebar-subitem-active {
+    @apply bg-gray-400 border border-solid border-gray-300 text-gray-150;
+  }
+  .sidebar.is-minimized {
+    @apply lg:w-15 lg:overflow-hidden;
+  }
+  .sidebar.is-active {
+    @apply opacity-100 pointer-events-auto;
+  }
+  .tab {
+    @apply before:content-[""] before:block before:w-2.5 before:h-2.5 before:absolute before:bottom-0 before:right-full before:bg-tab-corner before:bg-contain before:bg-no-repeat before:pointer-events-none after:content-[""] after:block after:absolute after:pointer-events-none after:left-full;
+  }
+  .tab:not(.is-active) {
+    @apply before:opacity-0 after:w-px after:h-3.75 after:bg-gray-500 after:top-[50%] after:-translate-y-[50%];
+  }
+  .tab.is-active {
+    @apply bg-white-50 border-gray-500 before:opacity-100 after:top-[initial] after:translate-y-0 after:w-2.5 after:h-2.5 after:bottom-0 after:bg-tab-corner after:bg-contain after:bg-no-repeat after:scale-x-[-1];
+  }
+  .settings-tab-active {
+    @apply bg-white-50 text-black-100 shadow-xss rounded-sm;
+  }
+}/*# sourceMappingURL=tailwind.css.map */
