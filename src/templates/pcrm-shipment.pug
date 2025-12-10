@@ -8,7 +8,7 @@ include _includes/components/table/table
 include _includes/components/table/table-card
 
 block head
-	+head({'title':'Goods'})
+	+head({'title':'Shipment'})
 
 
 block content
@@ -18,9 +18,9 @@ block content
 				+sidebar()
 				.flex.grow.w-full.overflow-hidden(class="lg:w-auto lg:h-full")
 					.flex.flex-col.w-full
-						+tabs({icon: 'icon-book-image', tab_text: 'Товари'})
+						+tabs({icon: 'icon-file-pen', tab_text: 'Збір товару на відправку'})
 						+navigation()
 						.flex.grow.overflow-hidden(class="gap-2.5")
-							+table-list-small()
-							+table-card()
+							+table-list-shipment()
+							+table-card-shipment()
 				+bottom-mob-bar()

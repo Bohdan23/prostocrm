@@ -8,7 +8,7 @@ include _includes/components/table/table
 include _includes/components/table/table-card
 
 block head
-	+head({'title':'Goods'})
+	+head({'title':'Orders Goods'})
 
 
 block content
@@ -18,9 +18,9 @@ block content
 				+sidebar()
 				.flex.grow.w-full.overflow-hidden(class="lg:w-auto lg:h-full")
 					.flex.flex-col.w-full
-						+tabs({icon: 'icon-book-image', tab_text: 'Товари'})
+						+tabs({icon: 'icon-file-pen', tab_text: 'Замовлення'})
 						+navigation()
 						.flex.grow.overflow-hidden(class="gap-2.5")
-							+table-list-goods()
-							+table-card-goods()
+							+table-list-orders-goods()
+							+table-card-orders-goods()
 				+bottom-mob-bar()

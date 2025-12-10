@@ -1,26 +1,26 @@
-mixin table-card(data)
-	.flex.items-start.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden
+mixin table-card-goods(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
 		.flex.flex-col.items-start.w-full.h-full
 			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
-				span.text-lg.font-regular.text-black-50 Замовлення #45635
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") Замовлення #45635
 				.flex.items-center.justify-start(class="gap-2.5")
-					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
 						+svg('icon-close')
 					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
 						+svg('icon-plus-circle')
 					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-save')
-						span.hidden(class="lg:flex") Зберегти
-					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200  lg:flex")
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
-						span Взаємозвʼязки
+						span.hidden(class="xl:flex") Взаємозвʼязки
 			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
 				.flex.flex-col.items-start.justify-start.gap-1.w-full
 					span.text-sm.font-medium.text-black-100 Фото
 					.flex.items-start.justify-start.flex-wrap(class="gap-2.5")
-						.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-xxxs.w-50.h-50.relative(class="p-1.25")
+						.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-xs.w-50.h-50.relative(class="p-1.25")
 							img(src="images/good-big.png", alt="img")
 							button.flex.items-center.justify-center.w-10.h-10.absolute.rounded-md.z-2.text-xl.text-black-150.bg-white-200.transition-colors(type="button" class="bottom-2.5 right-2.5 hover:bg-gray-200")
 								+svg('icon-refresh')
@@ -30,14 +30,14 @@ mixin table-card(data)
 								+svg('icon-plus')
 				.flex.flex-col.items-start.justify-start.gap-1.w-full
 					span.text-sm.font-medium.text-black-100 Назва
-					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска пластикова S")
+					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска пластикова S")
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Категорія
-						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска")
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Тип
-						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Пластик")
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Пластик")
 				.flex.flex-col.items-start.justify-start.gap-1.w-full
 					span.text-sm.font-medium.text-black-100 Властивості
 					.border.border-solid.border-gray-650.rounded-md.w-full
@@ -48,15 +48,7 @@ mixin table-card(data)
 								span.text-gray-250.text-sm.font-medium Опції
 						.flex.border-b.border-solid.border-gray-650.w-full
 							.flex.items-center.justify-start(class="w-44.5 min-h-12.5 p-2.5")
-								input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
-							.flex.items-center.justify-start.grow(class="min-h-12.5 p-2.5")
-								span.text-gray-250.text-sm.font-medium Опції
-							.flex.items-center.justify-start.shrink-0(class="min-h-12.5 w-12.5 p-2.5")
-								button.flex.items-center.justify-center.text-base.text-gray-150.rounded-lg.bg-blue-200.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/80")
-									+svg('icon-ellipsis')
-						.flex.w-full
-							.flex.items-center.justify-start(class="w-44.5 min-h-12.5 p-2.5")
-								input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+								input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
 							.flex.items-center.justify-start.grow(class="min-h-12.5 p-2.5")
 								span.text-gray-250.text-sm.font-medium Опції
 							.flex.items-center.justify-start.shrink-0(class="min-h-12.5 w-12.5 p-2.5")
@@ -66,4 +58,836 @@ mixin table-card(data)
 							span.flex.items-center.justify-center.w-5.h-5.text-xl
 								+svg('icon-plus-circle')
 							span.font-medium Додати властивость
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100.is-required Опис
+						.flex.w-full
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Одиниця вимірювання
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Одиниця" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 SKU
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="SKU" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата створення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата створення" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-4 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата оновлення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата оновлення" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-4 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+		+relationships()
+
+mixin table-card-orders(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") #45635
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Номер замовлення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Номер замовлення" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="#45635")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата створення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата продажу" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-4 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Товари в замовленні
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
+							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+								table.w-full.text-sm.text-left
+									thead.sticky.top-0.left-0.bg-white-50
+										tr
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") ID
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Назва
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Кількість
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") 
+									tbody
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/good-img.png", alt="img")
+													span Переноска пластикова S
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/good-img.png", alt="img")
+													span Переноска пластикова S
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
+								span.flex.items-center.justify-center.w-5.h-5.text-xl
+									+svg('icon-plus-circle')
+								span.font-medium Додати товар
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Клієнт
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Клієнт" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Електронна пошта
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="email" placeholder="Email" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Телефон
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="tel" placeholder="Телефон" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Коментар до замовлення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Коментар" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Метод доставки
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="email" placeholder="Метод доставки" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Трекінг-номер
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="tel" placeholder="Трекінг-номер" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Адреса доставки
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Адреса доставки" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Кількість товарів
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="email" placeholder="Кількість товарів" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Відправлено
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="tel" placeholder="Відправлено" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус доставки
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус доставки" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Загальна сума
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="email" placeholder="Загальна сума" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Оплачено
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="tel" placeholder="Оплачено" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Залишок
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="email" placeholder="Залишок" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус оплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="tel" placeholder="Статус оплати" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Платежі
+						button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
+							span.flex.items-center.justify-center.w-5.h-5.text-xl
+								+svg('icon-plus-circle')
+							span.font-medium Додати платіж
+		+relationships()
+
+mixin table-card-orders-goods(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") Замовлення #45635
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Фото
+					.flex.items-start.justify-start.flex-wrap(class="gap-2.5")
+						.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-xs.w-50.h-50.relative(class="p-1.25")
+							img(src="images/good-big.png", alt="img")
+							button.flex.items-center.justify-center.w-10.h-10.absolute.rounded-md.z-2.text-xl.text-black-150.bg-white-200.transition-colors(type="button" class="bottom-2.5 right-2.5 hover:bg-gray-200")
+								+svg('icon-refresh')
+						label.flex.items-center.justify-center.w-25.h-25.border.border-dashed.border-gray-500.cursor-pointer.transition-colors(for="input_file_image" class="hover:bg-white-100")
+							input(type="file" id="input_file_image" class="hidden")
+							span.w-5.h-5.flex.items-center.justify-center.text-xl
+								+svg('icon-plus')
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Назва
+					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска пластикова S")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100.is-required Опис
+						.flex.w-full
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Категорія
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 ID
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="ID" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Ціна за одиницю
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Ціна за одиницю" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Кількість
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Кількість" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Загальна сума замовлення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Сума" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Знижка
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Знижка" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Підсумкова сума
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Сума" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Оплачено
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Сума" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Залишок до сплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Сума" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус оплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус оплати" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата Оплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата оплати" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-4 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус відправки
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус відправки" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата відправки
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата відправки" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-4 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+		+relationships()
+
+mixin table-card-customers(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") Олена Коваль
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 ID
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="ID" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Ім'я
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Ім'я" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Тип
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Тип" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Телефон
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="tel" placeholder="Ім'я" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Електронна пошта
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="email" placeholder="Email" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Адреса
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Адреса" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата створення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата створення" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-4 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="#45635")
+		+relationships()
+
+mixin table-card-shipment(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") #45635
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 ID
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="ID" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="#45635")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Продаж ID
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Продаж ID" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="#45635")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата збору
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата збору" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-4 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="#45635")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Клієнт
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Клієнт" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Відповідальний менеджер
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Відповідальний менеджер" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Кількість товарів
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="number" placeholder="0" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Позиції до збору
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
+							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+								table.w-full.text-sm.text-left
+									thead.sticky.top-0.left-0.bg-white-50
+										tr
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") ID
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Назва
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Кількість
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") 
+									tbody
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/cat-food.png", alt="img")
+													span Корм для котів (основа)
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/cat-food.png", alt="img")
+													span Пакети для фасування
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+		+relationships()
+
+mixin table-card-sales(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") #45635
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 ID
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="ID" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="#45635")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата продажу
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата продажу" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-3 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Магазин
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Магазин" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Менеджер
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Менеджер" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Сума до сплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0 грн" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Оплачено
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0 грн" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Метод оплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Метод оплати" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Кількість товарів
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="number" placeholder="0" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Продані товари
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
+							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+								table.w-full.text-sm.text-left
+									thead.sticky.top-0.left-0.bg-white-50
+										tr
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") ID
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Назва
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Кількість
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") 
+									tbody
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/cat-food.png", alt="img")
+													span Корм для котів (основа)
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/cat-food.png", alt="img")
+													span Пакети для фасування
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+		+relationships()
+
+mixin table-card-inventory(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") #45635
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Номер інвентаризації
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="number" placeholder="Номер інвентаризації" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="#001")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата інвентаризації
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата інвентаризації" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-3 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Склад
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Склад" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Відповідальний
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Відповідальний" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full.border-b.border-t.border-solid.border-gray-650(class="gap-2.5")
+					.flex.items-center.justify-between.gap-4.w-full.min-h-13
+						span.text-sm.font-medium.text-black-100(class="w-[40%]") Кількість товарів
+						span.text-sm.font-medium.text-gray-900(class="w-[55%]") 100
+					.flex.items-center.justify-between.gap-4.w-full.min-h-13
+						span.text-sm.font-medium.text-black-100(class="w-[40%]") Відхилення
+						span.text-sm.font-medium.text-gray-900(class="w-[55%]") -3 од.
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Перелік товарів на складі
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
+							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+								table.w-full.text-sm.text-left
+									thead.sticky.top-0.left-0.bg-white-50
+										tr
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") ID
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Назва
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Кількість
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") 
+									tbody
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/good-img.png", alt="img")
+													span Переноска пластикова S
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
+								span.flex.items-center.justify-center.w-5.h-5.text-xl
+									+svg('icon-plus-circle')
+								span.font-medium Додати товар
+		+relationships()
+
+mixin table-card-production(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") Замовлення #45635
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Фото
+					.flex.items-start.justify-start.flex-wrap(class="gap-2.5")
+						.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-xs.w-50.h-50.relative(class="p-1.25")
+							img(src="images/temporary/cat-food-big.png", alt="img")
+							button.flex.items-center.justify-center.w-10.h-10.absolute.rounded-md.z-2.text-xl.text-black-150.bg-white-200.transition-colors(type="button" class="bottom-2.5 right-2.5 hover:bg-gray-200")
+								+svg('icon-refresh')
+						label.flex.items-center.justify-center.w-25.h-25.border.border-dashed.border-gray-500.cursor-pointer.transition-colors(for="input_file_image" class="hover:bg-white-100")
+							input(type="file" id="input_file_image" class="hidden")
+							span.w-5.h-5.flex.items-center.justify-center.text-xl
+								+svg('icon-plus')
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Товар
+					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Товар" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска пластикова S")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 ID
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="ID" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 SKU
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="SKU" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Кількість
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="number" placeholder="0" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата виготовлення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата виготовлення" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-3 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Склад призначення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Склад призначення" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Використані компоненти
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
+							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+								table.w-full.text-sm.text-left
+									thead.sticky.top-0.left-0.bg-white-50
+										tr
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") ID
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Назва
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Кількість
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") 
+									tbody
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/good-img.png", alt="img")
+													span Переноска пластикова S
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
+								span.flex.items-center.justify-center.w-5.h-5.text-xl
+									+svg('icon-plus-circle')
+								span.font-medium Додати компонент
+		+relationships()
+
+mixin table-card-product-sets(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") Набір шлейка і повідок
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Фото
+					.flex.items-start.justify-start.flex-wrap(class="gap-2.5")
+						.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-xs.w-50.h-50.relative(class="p-1.25")
+							img(src="images/good-big.png", alt="img")
+							button.flex.items-center.justify-center.w-10.h-10.absolute.rounded-md.z-2.text-xl.text-black-150.bg-white-200.transition-colors(type="button" class="bottom-2.5 right-2.5 hover:bg-gray-200")
+								+svg('icon-refresh')
+						label.flex.items-center.justify-center.w-25.h-25.border.border-dashed.border-gray-500.cursor-pointer.transition-colors(for="input_file_image" class="hover:bg-white-100")
+							input(type="file" id="input_file_image" class="hidden")
+							span.w-5.h-5.flex.items-center.justify-center.text-xl
+								+svg('icon-plus')
+				.flex.flex-col.items-start.justify-start.gap-1.w-full
+					span.text-sm.font-medium.text-black-100 Назва
+					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска пластикова S")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 ID
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="ID" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 SKU
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="SKU" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Пластик")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100.is-required Опис
+						.flex.w-full
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Товари
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
+							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+								table.w-full.text-sm.text-left
+									thead.sticky.top-0.left-0.bg-white-50
+										tr
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") ID
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Назва
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Кількість
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") 
+									tbody
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/good-img.png", alt="img")
+													span Переноска пластикова S
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
+								span.flex.items-center.justify-center.w-5.h-5.text-xl
+									+svg('icon-plus-circle')
+								span.font-medium Додати товар
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Загальна ціна
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Загальна ціна" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Магазин
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Магазин" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+		+relationships()
+
+mixin table-card-supply(data)
+	.js-table-info.hidden.w-full.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="[&.is-active]:flex [&.is-active]:items-start")
+		.flex.flex-col.items-start.w-full.h-full
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+				span.font-regular.text-black-50.text-base(class="xl:text-lg") #45635
+				.flex.items-center.justify-start(class="gap-2.5")
+					button.js-table-info-close.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200")
+						+svg('icon-close')
+					button.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-xl.text-gray-150.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200 lg:flex")
+						+svg('icon-plus-circle')
+					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-save')
+						span.hidden(class="xl:flex") Зберегти
+					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
+							+svg('icon-panel-right-open')
+						span.hidden(class="xl:flex") Взаємозвʼязки
+			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Номер постачання
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="number" placeholder="Номер постачання" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="#001")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата поставки
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата поставки" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-3 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Постачальник
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Постачальник" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Склад призначення
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Склад призначення" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Електронна пошта
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="email" placeholder="Email" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Телефон
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="tel" placeholder="Телефон" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-start.w-full
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Позиції в поставці
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
+							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+								table.w-full.text-sm.text-left
+									thead.sticky.top-0.left-0.bg-white-50
+										tr
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") ID
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Назва
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") Кількість
+											th.font-medium.text-gray-900.whitespace-nowrap(class="py-3.75 px-2.5 min-h-12.5") 
+									tbody
+										tr.transition-colors.border-t.border-solid.border-gray-650
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
+												.flex.items-center.justify-start(class="gap-2.5")
+													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+														img(src="/images/temporary/good-img.png", alt="img")
+													span Переноска пластикова S
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
+											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
+												.flex.items-center.justify-center
+													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
+														+svg('icon-file-scan')
+													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+														+svg('icon-ellipsis')
+							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
+								span.flex.items-center.justify-center.w-5.h-5.text-xl
+									+svg('icon-plus-circle')
+								span.font-medium Додати товар
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Кількість товарів
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="number" placeholder="0" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Загальна сума
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Загальна сума" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Оплачено
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Оплачено" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Метод оплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Метод оплати" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус оплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Статус оплати" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Дата оплати
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.pl-10.pr-3.text-sm.text-black-100.outline-none.relative.transition-all(type="date" placeholder="Дата оплати" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:right-[auto] [&::-webkit-calendar-picker-indicator]:left-3 [&::-webkit-calendar-picker-indicator]:w-4 [&::-webkit-calendar-picker-indicator]:h-4 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:bg-calendar-picker [&::-webkit-calendar-picker-indicator]:bg-center [&::-webkit-calendar-picker-indicator]:bg-contain [&::-webkit-calendar-picker-indicator]:bg-no-repeat" value="2025-06-01")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Статус поставки
+						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="numtextber" placeholder="Статус поставки" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+				.flex.items-start.justify-between.w-full(class="gap-2.5")
+					.flex.flex-col.items-start.justify-start.gap-1.w-full
+						span.text-sm.font-medium.text-black-100 Платежі
+						button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
+							span.flex.items-center.justify-center.w-5.h-5.text-xl
+								+svg('icon-plus-circle')
+							span.font-medium Додати платіж
 		+relationships()

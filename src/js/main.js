@@ -76,3 +76,90 @@ if (document.querySelectorAll(".js-minimize-sidebar").length > 0) {
     document.querySelector(".js-sidebar").classList.toggle("is-minimized");
   };
 }
+
+//dropdowns
+
+if (document.querySelectorAll(".dropdown-trigger").length > 0) {
+  document.querySelectorAll('.dropdown-trigger').forEach(item => {
+    item.onclick = function(e) {
+      this.closest(".dropdown").classList.toggle("is-opened");
+    };
+  });
+}
+
+//bottom menu SIDEBAR trigger
+if (document.querySelectorAll(".js-sidebar-trigger").length > 0) {
+  document.querySelector(".js-sidebar-trigger").onclick = function(e) {
+    document.querySelector(".js-sidebar").classList.toggle("is-active");
+  };
+}
+
+// RELATIONSHIPS panel
+// bottom menu RELATIONSHIPS panel
+if (document.querySelectorAll(".js-relationships-trigger").length > 0) {
+  document.querySelector(".js-relationships-trigger").onclick = function(e) {
+    document.querySelector(".js-relationships-open").classList.toggle("is-hidden");
+    document.querySelector(".js-relationships-wrapper").classList.toggle("is-active");
+  };
+}
+// table RELATIONSHIPS panel
+if (document.querySelectorAll(".js-relationships-open").length > 0) {
+  document.querySelector(".js-relationships-open").onclick = function(e) {
+    this.classList.add("is-hidden");
+    document.querySelector(".js-relationships-wrapper").classList.toggle("is-active");
+  };
+}
+// RELATIONSHIPS panel
+if (document.querySelectorAll(".js-relationships-close").length > 0) {
+  document.querySelector(".js-relationships-close").onclick = function(e) {
+    document.querySelector(".js-relationships-open").classList.remove("is-hidden");
+    document.querySelector(".js-relationships-wrapper").classList.remove("is-active");
+  };
+}
+
+//table open details
+if (document.querySelectorAll(".js-table-info-open").length > 0) {
+  document.querySelector(".js-table-info-open").onclick = function(e) {
+    document.querySelector(".js-table").classList.add("is-active");
+    document.querySelector(".js-table-info").classList.add("is-active");
+    this.classList.add('is-selected');
+  };
+  document.querySelector(".js-table-info-close").onclick = function(e) {
+    document.querySelector(".js-table").classList.remove("is-active");
+    document.querySelector(".js-table-info").classList.remove("is-active");
+    document.querySelector(".js-table-info-open.is-selected").classList.remove("is-selected");
+  };
+}
+
+//popover
+// function setPopoverPosition(triggerElem, targetElem) {
+  // const triggerButtonRect = triggerElem.getBoundingClientRect();
+  // targetElem.style.left = (triggerButtonRect.left + 25) + 'px';
+  // targetElem.style.top  = (triggerButtonRect.top  + 25) + 'px';
+// }
+
+// function refreshActivePopovers() {
+//   document.querySelectorAll('.js-popover-item.is-active').forEach(item => {
+//     const trigger = item.closest('.js-popover-trigger');
+//     if (trigger) setPopoverPosition(trigger, item);
+//   });
+// }
+
+// window.addEventListener('resize', refreshActivePopovers);
+// window.addEventListener('scroll', refreshActivePopovers, { passive: true });
+
+// if (window.visualViewport) {
+//   visualViewport.addEventListener('resize', refreshActivePopovers);
+//   visualViewport.addEventListener('scroll', refreshActivePopovers);
+// }
+
+// document.querySelectorAll('.js-popover-trigger').forEach(trigger => {
+//   const popover = trigger.querySelector('.js-popover-item');
+//   trigger.addEventListener('click', (e) => {
+//     e.stopPropagation();
+//     popover.classList.toggle('is-active');
+//     if (popover.classList.contains('is-active')) {
+//       setPopoverPosition(trigger, popover);
+//     }
+//   });
+// });

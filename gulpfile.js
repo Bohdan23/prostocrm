@@ -54,7 +54,6 @@ function styles() {
             tailwindcss(paths.tailwindConfig),
             require('autoprefixer'),
         ]))
-        .pipe(autoprefixer())
         .pipe(cleanCSS())
         .pipe(concat('index.css'))
         .pipe(gulp.dest(paths.styles.dest))
@@ -65,7 +64,6 @@ function scripts() {
     return gulp.src(paths.scripts.src)
         .pipe(sourcemaps.init())
         .pipe(concat('main.js'))
-        // .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.scripts.dest))
         .pipe(browserSync.stream());
@@ -92,6 +90,7 @@ function watch() {
     });
     gulp.watch(paths.styles.src, styles);
     gulp.watch(paths.tailwindConfig, styles);
+    gulp.watch(['src/**/*.{pug,html,js,ts}'], styles);
     gulp.watch(paths.scripts.src, scripts);
     gulp.watch(paths.images.src, images);
     gulp.watch(paths.pug.src, pug);
@@ -101,36 +100,3 @@ function watch() {
 const build = gulp.series(gulp.parallel(styles, scripts, images, pug));
 gulp.task('build', build);
 gulp.task('default', gulp.series(build, watch));
-
-
-// const paths = {
-//     templates: 'src/templates/',
-//     styles: 'src/styles/global.css',
-//     dest: 'dist/css/', 
-// }
-
-// function styles() {
-//     const pages = ['launchpad.pug', 'index.pug'];
-
-//     const tasks = pages.map((page) => {
-//         const pagePath = `${paths.templates}${page}`;
-
-//         return gulp
-//             .src(paths.styles) 
-//             .pipe(
-//                 postcss([
-//                     tailwindcss({
-//                         content: [pagePath],
-//                     }),
-//                     autoprefixer(),
-//                 ])
-//             )
-//             .pipe(rename({ basename: page.replace('.pug', '') }))
-//             .pipe(gulp.dest(paths.dest));
-//     });
-
-//     return Promise.all(tasks);
-// }
-
-// gulp.task('styles', styles);
-// gulp.task('default', gulp.series('styles'));

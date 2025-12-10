@@ -1,23 +1,53 @@
 mixin relationships(data)
-	.flex.flex-col.w-65.h-full.bg-gray-800.bg-gray-800.shrink-0
-		.flex.items-center.justify-between.w-full.border-b.border-l.border-solid.border-gray-500(class="p-2.5 gap-2")
-			span.text-black-50.text-sm Взаємозвʼязки
-			button.flex.items-center.justify-center.shrink-0.text-gray-150.text-xl(type="button" class="w-7.5 h-7.5")
-				+svg('icon-panel-right-close')
-		.flex.flex-wrap.items-start.justify-start.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
-			+checkbox-item('checkbox_15', false, `Врахувати фільтри`)
-			+filter-piece({icon: 'icon-filter', text: 'Магазин: “КітПес”'})
-			+filter-piece({icon: 'icon-filter', text: 'Покупець: “Іван Довгий”'})
-			+filter-piece({icon: 'icon-filter', text: 'Магазин: “єЄкомерс”'})
-		.flex.flex-wrap.items-start.justify-start.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
-			+checkbox-item('checkbox_15', false, `Врахувати діапазон дат`)
-			+filter-piece({icon: 'icon-filter', text: '06 Чер - 03 Лип, 2025'})
-
-
+	.js-relationships-wrapper.hidden.w-full.h-full.flex.items-end.justify-center.pointer-events-none.transition-all(class="fixed opacity-0 bg-gray-150/60 inset-0 z-20 p-2.5 pb-0 xl:relative xl:bg-transparent xl:opacity-100 xl:items-start xl:p-0 xl:shrink-0 xl:w-65 xl:pointer-events-auto [&.is-active]:flex [&.is-active]:pointer-events-auto [&.is-active]:opacity-100")
+		.flex.flex-col.max-h-full.border-l.border-solid.border-gray-500.bg-gray-800.rounded-t-xss.w-100(class="xl:w-full xl:rounded-none xl:h-full")
+			.flex.items-center.justify-between.w-full.border-b.border-solid.border-gray-500(class="p-2.5 gap-2")
+				span.text-black-50.text-sm Взаємозвʼязки
+				button.js-relationships-close.flex.items-center.justify-center.shrink-0.text-gray-150.text-xl(type="button" class="w-7.5 h-7.5")
+					+svg('icon-panel-right-close')
+			.flex.flex-col.overflow-hidden.overflow-y-auto
+				.flex.flex-wrap.items-start.justify-start.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+					+checkbox-item('checkbox_15', false, `Врахувати фільтри`)
+					+filter-piece({icon: 'icon-filter', text: 'Магазин: “КітПес”'})
+					+filter-piece({icon: 'icon-filter', text: 'Покупець: “Іван Довгий”'})
+					+filter-piece({icon: 'icon-filter', text: 'Магазин: “єЄкомерс”'})
+				.flex.flex-wrap.items-start.justify-start.border-b.border-solid.border-gray-500(class="p-2.5 gap-2.5")
+					+checkbox-item('checkbox_16', false, `Врахувати діапазон дат`)
+					+filter-piece({icon: 'icon-filter', text: '06 Чер - 03 Лип, 2025'})
+				.flex.flex-wrap.items-start.justify-start(class="p-2.5 gap-7.5")
+					.flex.flex-col.items-start.justify-start(class="gap-2.5")
+						.flex.items-center.justify-start.text-gray-150(class="gap-1.25")
+							.flex.items-center.justify-center.w-5.h-5.shrink-0.text-xl
+								+svg('icon-companies')
+							span.font-medium.text-xss Компанії та магазини
+						.flex.flex-wrap.items-start.justify-start(class="gap-1.25")
+							+rel-button({text: 'Онлайн магазин (1)'})
+					.flex.flex-col.items-start.justify-start(class="gap-2.5")
+						.flex.items-center.justify-start.text-gray-150(class="gap-1.25")
+							.flex.items-center.justify-center.w-5.h-5.shrink-0.text-xl
+								+svg('icon-categories')
+							span.font-medium.text-xss Товари та категорії
+						.flex.flex-wrap.items-start.justify-start(class="gap-1.25")
+							+rel-button({text: "Прив'язка до магазинів (1)"})
+							+rel-button({text: "Набори товарів (1)"})
+							+rel-button({text: "Відвантаження (4)"})
+					.flex.flex-col.items-start.justify-start(class="gap-2.5")
+						.flex.items-center.justify-start.text-gray-150(class="gap-1.25")
+							.flex.items-center.justify-center.w-5.h-5.shrink-0.text-xl
+								+svg('icon-database-zap')
+							span.font-medium.text-xss Продажі
+						.flex.flex-wrap.items-start.justify-start(class="gap-1.25")
+							+rel-button({text: "Позиції у продажах  (12)"})
+							+rel-button({text: "Повернення (1)"})
 
 mixin filter-piece(data)
-	.flex.items-center.justify-center.gap-1.bg-blue-200.shadow-xss.text-xs.text-gray-150.font-medium.rounded-md(class="h-5 py-0.5 px-2")
+	.flex.items-center.justify-center.gap-1.bg-blue-200.shadow-xss.text-xs.text-gray-150.font-medium.rounded-md.cursor-pointer(class="h-5 py-0.5 px-2")
 		.flex.items-center.justify-center.w-3.h-3.shrink-0
 			+svg(data.icon)
 		span!= data.text
 		
+mixin rel-button(data)
+	button.flex.items-center.justify-center.h-9.px-2.rounded-md.gap-2.border.border-solid.border-gray-650.bg-white-50.shadow-xss.outline-none.transition-all(type="button" class="focus:outline-none hover:bg-gray-500 hover:shadow-none")
+		span.flex.items-center.justify-center.w-4.h-4.text-black-50.text-base
+			+svg('icon-connections')
+		span.text-black-100.text-xs!= data.text
