@@ -20,10 +20,10 @@ mixin login(data)
 				.flex.flex-col.items-center.justify-between.w-full(class="gap-1.5 sm:flex-row")
 					+checkbox-item('checkbox_13', false, `Запам'ятати мене`)
 					a.flex.items-center.justify-center.text-blue-50.transition-colors(href="javascript:void(0)" class="hover:text-orange-100") Забули пароль?
-				button.flex.items-center.justify-center.w-full.h-10.rounded-md.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="hover:bg-blue-150") Увійти
+				button.flex.items-center.justify-center.w-full.h-10.rounded-md.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="hover:bg-blue-300") Увійти
 				.flex.items-center.justify-center.w-full(class="gap-2.5 before:content-[] before:block before:h-px before:bg-gray-650 before:mt-1 before:grow after:content-[] after:block after:h-px after:bg-gray-650 after:mt-1 after:grow")
 					span.flex.items-center.text-gray-250.text-sm  або
-				button.flex.items-center.justify-center.w-full.h-10.gap-2.rounded-md.bg-white-200.transition-colors(type="button" class="hover:bg-white-150")
+				button.flex.items-center.justify-center.w-full.h-10.gap-2.rounded-md.bg-white-200.transition-colors(type="button" class="hover:bg-gray-200")
 					span.flex.items-center.justify-center.w-5.h-5
 						img.w-full(src="images/svg/google.svg", alt="google")
 					span.text-sm.font-medium.text-black-100 Вхід Google
@@ -52,10 +52,10 @@ mixin registration(data)
 					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="shadow-input Пароль ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
 				.flex.items-center.justify-between.w-full(class="gap-1.5")
 					+checkbox-item('checkbox_14', false, `Згоден з умовами платформи`)
-				button.flex.items-center.justify-center.w-full.h-10.rounded-md.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="hover:bg-blue-150") Створити акаунт
+				button.flex.items-center.justify-center.w-full.h-10.rounded-md.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="hover:bg-blue-300") Створити акаунт
 				.flex.items-center.justify-center.w-full(class="gap-2.5 before:content-[] before:block before:h-px before:bg-gray-650 before:mt-1 before:grow after:content-[] after:block after:h-px after:bg-gray-650 after:mt-1 after:grow")
 					span.flex.items-center.text-gray-250.text-sm  або
-				button.flex.items-center.justify-center.w-full.h-10.gap-2.rounded-md.bg-white-200.transition-colors(type="button" class="hover:bg-white-150")
+				button.flex.items-center.justify-center.w-full.h-10.gap-2.rounded-md.bg-white-200.transition-colors(type="button" class="hover:bg-gray-200")
 					span.flex.items-center.justify-center.w-5.h-5
 						img.w-full(src="images/svg/google.svg", alt="google")
 					span.text-sm.font-medium.text-black-100 Реєстрація Google
@@ -79,7 +79,7 @@ mixin forgot(data)
 				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
 					span.text-sm.text-black-100.font-medium Повторіть пароль
 					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="shadow-input Пароль ..." class="placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
-			button.flex.items-center.justify-center.gap-2.w-full.rounded-b-xss.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="min-h-17.5 hover:bg-blue-150")
+			button.flex.items-center.justify-center.gap-2.w-full.rounded-b-xss.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="min-h-17.5 hover:bg-blue-300")
 				span.flex.items-center.justify-center.w-5.h-5.text-xl.text-white-50.shrink-0
 					+svg('icon-checkmark')
 				| Зберегти
@@ -102,7 +102,7 @@ mixin settings(data)
 				.flex.flex-col.items-start.justify-start.w-full(class="gap-1.5")
 					span.text-sm.text-black-100.font-medium Ваше прізвище
 					input.w-full.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-all(type="password" placeholder="Прізвище" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
-			button.flex.items-center.justify-center.gap-2.w-full.rounded-b-xss.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="min-h-17.5 hover:bg-blue-150")
+			button.flex.items-center.justify-center.gap-2.w-full.rounded-b-xss.bg-blue-50.px-2.transition-colors.text-sm.font-medium.text-white-50(type="submit" class="min-h-17.5 hover:bg-blue-300")
 				span.flex.items-center.justify-center.w-5.h-5.text-xl.text-white-50.shrink-0
 					+svg('icon-checkmark')
 				| Зберегти налаштування

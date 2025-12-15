@@ -29,7 +29,7 @@ mixin filters(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.text-black-50.relative
 							+svg('icon-filter')
 							span.w-4.h-4.rounded-full.absolute.z-10.bg-black-150.flex.items-center.justify-center.font-medium.text-white-50.text-xs(class="-top-2 -right-2") 4
-					.dropdown-body.flex.flex-col.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="w-[calc(100vw_-_42px)] sm:w-137.5 -left-40 lg:-left-42 xl:left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.is-opened]/dropdown-filters:opacity-100 group-[.is-opened]/dropdown-filters:translate-y-0 group-[.is-opened]/dropdown-filters:pointer-events-auto")
+					.dropdown-body.flex.flex-col.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="w-[calc(100vw_-_42px)] sm:w-137.5 -left-40 lg:-left-42 xl:left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-top]/dropdown-filters:top-auto group-[.dropdown-top]/dropdown-filters:bottom-[calc(100%_+_5px)] group-[.dropdown-right]/dropdown-filters:left-auto group-[.dropdown-right]/dropdown-filters:-right-40 lg:group-[.dropdown-right]/dropdown-filters:-right-42 xl:group-[.dropdown-right]/dropdown-filters:right-0 group-[.is-opened]/dropdown-filters:opacity-100 group-[.is-opened]/dropdown-filters:translate-y-0 group-[.is-opened]/dropdown-filters:pointer-events-auto")
 						.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Фільтри
 						.flex.flex-col.items-start.p-2(class="gap-2.5")
 							.flex.items-center.justify-start.gap-2.w-full
@@ -57,24 +57,24 @@ mixin filters(data)
 									+svg('icon-bucket')
 							.flex.items-center.justify-start.gap-2.w-full
 								input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Ціна" class="shadow-input w-32.5 sm:w-35 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
-								.flex.flex-wrap.items-center.justify-start.grow.gap-y-2
+								.flex.flex-wrap.items-center.justify-start.grow.gap-y-2(class="sm:flex-nowrap")
 									.flex.items-center.justify-start.grow
-										span.flex.items-center.px-2.text-sm.font-regular.text-gray-900 від
-										input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Ціна ₴" class="grow shadow-input min-w-2.5 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+										span.hidden.items-center.px-2.text-sm.font-regular.text-gray-900(class="sm:flex") від
+										input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Ціна від ₴" class="grow shadow-input w-full min-w-2.5 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
 									.flex.items-center.justify-start.grow
-										span.flex.items-center.px-2.text-sm.font-regular.text-gray-900 до
-										input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Ціна ₴" class="grow shadow-input min-w-2.5 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+										span.hidden.items-center.px-2.text-sm.font-regular.text-gray-900(class="sm:flex") до
+										input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Ціна до ₴" class="grow shadow-input w-full min-w-2.5 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
 								button.flex.items-center.justify-center.w-9.h-9.rounded-md.shrink-0.bg-white-200.transition-colors.text-black-150.text-xl(type="button" class="hover:bg-gray-200")
 									+svg('icon-bucket')
-							button.inline-flex.items-center.justify-center.gap-2.bg-white-200.rounded-md.transition-colors(type="button" class="min-w-42.5 h-9 hover:bg-gray-200")
+							button.inline-flex.items-center.justify-center.gap-2.bg-white-200.rounded-md.transition-colors(type="button" class="min-w-full sm:min-w-42.5 h-9 hover:bg-gray-200")
 								span.flex.items-center.justify-center.shrink-0.w-4.h-4.text-black-150.text-base
 									+svg('icon-plus-circle')
 								span.text-black-100.text-sm.font-medium Додати фільтр
 			.flex.items-center.justify-start(class="gap-2.5 lg:[.is-active_&]:hidden")
-				.dropdown.flex.items-center.justify-center.relative(class="group/dropdown-columns")
+				.dropdown.dropdown-right.flex.items-center.justify-center.relative(class="group/dropdown-columns")
 					button.dropdown-trigger.flex.items-center.justify-center.shrink-0.w-10.h-10.border.border-solid.border-gray-650.rounded-md.text-xl.text-black-50.shadow-xss.transition-shadow(type="button" class="hover:shadow-none")
 						+svg('icon-good-settings')
-					.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="right-0 -translate-y-1 top-[calc(100%_+_5px)] group-[.is-opened]/dropdown-columns:opacity-100 group-[.is-opened]/dropdown-columns:translate-y-0 group-[.is-opened]/dropdown-columns:pointer-events-auto")
+					.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 -translate-y-1 top-[calc(100%_+_5px)] group-[.dropdown-top]/dropdown-columns:top-auto group-[.dropdown-top]/dropdown-columns:bottom-[calc(100%_+_5px)] group-[.dropdown-right]/dropdown-columns:left-auto group-[.dropdown-right]/dropdown-columns:right-0 group-[.is-opened]/dropdown-columns:opacity-100 group-[.is-opened]/dropdown-columns:translate-y-0 group-[.is-opened]/dropdown-columns:pointer-events-auto")
 						.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Стовбці
 						.flex.flex-col.p-1
 							.flex.items-center.justify-between.gap-1.min-h-8.px-2.text-black-100.text-sm.rounded(class="py-1.5") 	
@@ -96,17 +96,17 @@ mixin filters(data)
 					span.flex.items-center.justify-center.w-5.h-5.shrink-0.text-xl
 						+svg('icon-plus-circle')
 					span.hidden.text-sm.font-medium(class="lg:flex") Додати товар
-		.dropdown-body.hidden.bg-gray-1000.rounded-b-md.rounded-se-md(class="gap-2.5 p-2.5 lg:group-[.is-opened]/dropdown-analytics:inline-flex")
+		.dropdown-body.hidden.flex-wrap.bg-gray-1000.rounded-b-md.rounded-se-md(class="gap-2.5 p-2.5 lg:group-[.is-opened]/dropdown-analytics:inline-flex")
 			.flex.items-center.justify-center.bg-gray-500.rounded.p-px
-				.dropdown.flex.flex-col.items-start.justify-start.bg-white-50.relative.rounded-ss-sxs.rounded-es-sxs.rounded-se-sxs.rounded-ee-sxs(class="group/dropdown h-14.5 min-w-33.5 px-2.5 py-1.25")
+				.dropdown.flex.flex-col.items-start.justify-start.bg-white-50.relative.rounded-ss-sxs.rounded-es-sxs.rounded-se-sxs.rounded-ee-sxs(class="group/dropdown-list h-14.5 min-w-33.5 px-2.5 py-1.25")
 					span.text-black-100.text-sm.font-medium Товари
 					.flex.items-center.justify-start(class="gap-1.25")
 						span.text-black-100.text-lg.font-semibold 350
 						button.dropdown-trigger.flex.items-center.justify-start.text-gray-350(type="button")
 							span.text-xs.font-medium усього
-							span.flex.items-center.justify-center.text-xs.shrink-0.rotate-90.transition-transform(class="group-[.is-opened]/dropdown:rotate-[270deg]")
+							span.flex.items-center.justify-center.text-xs.shrink-0.rotate-90.transition-transform(class="group-[.is-opened]/dropdown-list:rotate-[270deg]")
 								+svg('icon-chevron')
-					.dropdown-body.flex.flex-col.w-full.rounded-md.border.border-solid.border-gray-650.p-1.absolute.bg-white-50.opacity-0.shadow-dropdown.pointer-events-none.transition-all.z-40(class="left-1/2 -translate-x-1/2 -translate-y-1 top-[calc(100%_+_5px)] group-[.is-opened]/dropdown:opacity-100 group-[.is-opened]/dropdown:translate-y-0 group-[.is-opened]/dropdown:pointer-events-auto")
+					.dropdown-body.flex.flex-col.w-full.rounded-md.border.border-solid.border-gray-650.p-1.absolute.bg-white-50.opacity-0.shadow-dropdown.pointer-events-none.transition-all.z-40(class="left-1/2 -translate-x-1/2 -translate-y-1 top-[calc(100%_+_5px)] group-[.dropdown-top]/dropdown-list:top-auto group-[.dropdown-top]/dropdown-list:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-list:opacity-100 group-[.is-opened]/dropdown-list:translate-y-0 group-[.is-opened]/dropdown-list:pointer-events-auto")
 						button.is-checked.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
 							span.text-sm.text-black-100 усього
 							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
@@ -124,15 +124,15 @@ mixin filters(data)
 							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
 								+svg('icon-checkmark')
 			.flex.items-center.justify-center.bg-gray-500.rounded.p-px
-				.dropdown.flex.flex-col.items-start.justify-start.bg-white-50.relative.rounded-ss-sxs.rounded-es-sxs(class="group/dropdown h-14.5 min-w-33.5 px-2.5 py-1.25")
+				.dropdown.flex.flex-col.items-start.justify-start.bg-white-50.relative.rounded-ss-sxs.rounded-es-sxs(class="group/dropdown-list h-14.5 min-w-33.5 px-2.5 py-1.25")
 					span.text-black-100.text-sm.font-medium Виробник
 					.flex.items-center.justify-start(class="gap-1.25")
 						span.text-black-100.text-lg.font-semibold 15
 						button.dropdown-trigger.flex.items-center.justify-start.text-gray-350(type="button")
 							span.text-xs.font-medium сума
-							span.flex.items-center.justify-center.text-xs.shrink-0.rotate-90.transition-transform(class="group-[.is-opened]/dropdown:rotate-[270deg]")
+							span.flex.items-center.justify-center.text-xs.shrink-0.rotate-90.transition-transform(class="group-[.is-opened]/dropdown-list:rotate-[270deg]")
 								+svg('icon-chevron')
-					.dropdown-body.flex.flex-col.w-full.rounded-md.border.border-solid.border-gray-650.p-1.absolute.bg-white-50.opacity-0.shadow-dropdown.pointer-events-none.transition-all.z-40(class="left-1/2 -translate-x-1/2 -translate-y-1 top-[calc(100%_+_5px)] group-[.is-opened]/dropdown:opacity-100 group-[.is-opened]/dropdown:translate-y-0 group-[.is-opened]/dropdown:pointer-events-auto")
+					.dropdown-body.flex.flex-col.w-full.rounded-md.border.border-solid.border-gray-650.p-1.absolute.bg-white-50.opacity-0.shadow-dropdown.pointer-events-none.transition-all.z-40(class="left-1/2 -translate-x-1/2 -translate-y-1 top-[calc(100%_+_5px)] group-[.dropdown-top]/dropdown-list:top-auto group-[.dropdown-top]/dropdown-list:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-list:opacity-100 group-[.is-opened]/dropdown-list:translate-y-0 group-[.is-opened]/dropdown-list:pointer-events-auto")
 						button.is-checked.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
 							span.text-sm.text-black-100 сума 1
 							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
@@ -154,7 +154,7 @@ mixin filters(data)
 			.dropdown.flex.items-center.justify-center.relative(class="group/dropdown-params")
 				button.dropdown-trigger.flex.items-center.justify-center.w-15.h-15.bg-white-50.rounded.border.border-solid.border-gray-500.text-xl.text-black-50.transition-colors(type="button" class="w-15 h-15 hover:bg-gray-400")
 					+svg('icon-list-plus')
-				.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-0 -translate-y-1 group-[.is-opened]/dropdown-params:opacity-100 group-[.is-opened]/dropdown-params:translate-y-0 group-[.is-opened]/dropdown-params:pointer-events-auto")
+				.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-params:left-auto group-[.dropdown-right]/dropdown-params:right-0 group-[.dropdown-top]/dropdown-params:top-auto group-[.dropdown-top]/dropdown-params:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-params:opacity-100 group-[.is-opened]/dropdown-params:translate-y-0 group-[.is-opened]/dropdown-params:pointer-events-auto")
 					.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
 					.flex.flex-col.p-1
 						button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Категорії
@@ -162,7 +162,7 @@ mixin filters(data)
 						button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Вартість
 
 mixin array-popover(data)
-	.js-popover-item.fixed.rounded-xxs.border.border-solid.border-blue-50.transition-opacity.pointer-events-none.overflow-hidden(class="w-117.5 opacity-0 z-30 [&.is-active]:opacity-100 [&.is-active]:pointer-events-auto")
+	.js-popover-item.rounded-xxs.border.border-solid.border-blue-50.transition-opacity.pointer-events-none.overflow-hidden(class="absolute left-full top-full w-117.5 opacity-0 z-30 [&.is-active]:opacity-100 [&.is-active]:pointer-events-auto group-hover/popover:opacity-100 group-hover/popover:pointer-events-auto")
 		.flex.w-full.overflow-hidden.overflow-y-auto(class="max-h-76.5 [-webkit-overflow-scrolling:touch]")
 			table.w-full.text-sm.text-left.bg-blue-350.rounded-xxss
 				thead.sticky.top-0.left-0.bg-blue-350
@@ -328,10 +328,24 @@ mixin array-popover(data)
 							button.flex.items-center.justify-center.rounded-l-xss.bg-transparent.text-black-150.shrink-0(type="button" class="w-5 h-5 text-xl")
 								+svg('icon-file-scan')
 
+mixin table-buttons(data)
+	.flex.items-center.justify-center
+		button.js-table-info-open.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
+			+svg('icon-edit')
+		.dropdown.dropdown-right.relative.flex.items-center.justify-center(class="group/dropdown-table")
+			button.dropdown-trigger.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
+				+svg('icon-ellipsis')
+			.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-table:left-auto group-[.dropdown-right]/dropdown-table:right-0 group-[.dropdown-top]/dropdown-table:top-auto group-[.dropdown-top]/dropdown-table:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-table:opacity-100 group-[.is-opened]/dropdown-table:translate-y-0 group-[.is-opened]/dropdown-table:pointer-events-auto")
+				.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+				.flex.flex-col.p-1
+					button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+					button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+					button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
+
 mixin table-list-goods(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -346,7 +360,7 @@ mixin table-list-goods(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -363,17 +377,94 @@ mixin table-list-goods(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
+		+pager()
+
+mixin table-list-goods-fb(data)
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+		+filters()
+		.flex.flex-col.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+			.flex.w-full.bg-white-200
+				.flex
+					button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="pl-2.5 pr-5 gap-2.5 h-12.5 hover:bg-white-50")
+						+checkbox-item('checkbox_3', false, '', 'lg:[.is-active_&]:hidden')
+						span.text-blue-50 6 обраних
+				.flex.dropdown.relative(class="group/dropdown-add")
+					button.dropdown-trigger.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-5 gap-2 h-12.5 hover:bg-white-50")
+						span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
+							+svg('icon-plus-circle')
+						span Додати...
+					.dropdown-body.flex.flex-col.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="w-[calc(100vw_-_42px)] sm:w-137.5 -left-40 lg:-left-42 xl:left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.is-opened]/dropdown-add:opacity-100 group-[.is-opened]/dropdown-add:translate-y-0 group-[.is-opened]/dropdown-add:pointer-events-auto")
+						.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати до обраних:
+						.flex.flex-col.items-start.p-2(class="gap-2.5")
+							.flex.items-center.justify-start.gap-2.w-full
+								input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Категорія" class="shadow-input w-32.5 sm:w-35 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+								input.grow.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Текст" class="shadow-input min-w-2.5 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+								button.flex.items-center.justify-center.w-9.h-9.rounded-md.shrink-0.bg-white-200.transition-colors.text-black-150.text-xl(type="button" class="hover:bg-gray-200")
+									+svg('icon-bucket')
+							.flex.items-center.justify-start.gap-2.w-full
+								input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Колір" class="shadow-input w-32.5 sm:w-35 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+								.flex.flex-wrap.items-center.justify-start.grow.min-h-9.border.border-solid.border-gray-650.rounded-md.px-2.gap-2.shadow-input(class="py-1.5")
+									button.flex.items-center.justify-center.h-6.rounded-md.text-black-100.text-xs.font-medium.bg-white-200.shrink-0.transition-colors(type="button" class="hover:bg-gray-200")
+										span.flex.h-full.py-1.pl-2.pr-1 Блакитний
+										span.flex.items-center.justify-center.shrink-0.text-gray-900.text-xs.h-full.w-5
+											+svg('icon-close')
+									button.flex.items-center.justify-center.h-6.rounded-md.text-black-100.text-xs.font-medium.bg-white-200.shrink-0.transition-colors(type="button" class="hover:bg-gray-200")
+										span.flex.h-full.py-1.pl-2.pr-1 Жовтий
+										span.flex.items-center.justify-center.shrink-0.text-gray-900.text-xs.h-full.w-5
+											+svg('icon-close')
+								button.flex.items-center.justify-center.w-9.h-9.rounded-md.shrink-0.bg-white-200.transition-colors.text-black-150.text-xl(type="button" class="hover:bg-gray-200")
+									+svg('icon-bucket')
+							.flex.flex-col.items-center.justify-between.w-full.gap-3(class="sm:flex-row")
+								button.flex.items-center.justify-center.w-full.gap-2.bg-white-200.rounded-md.transition-colors(type="button" class="min-w-full sm:min-w-42.5 h-9 hover:bg-gray-200")
+									span.flex.items-center.justify-center.shrink-0.w-4.h-4.text-base.shrink-0
+										+svg('icon-plus-circle')
+									span.text-black-100.text-sm.font-medium Додати
+								.flex.items-center.justify-between.border-b.border-solid.border-gray-500(class="py-2.5 gap-2.5")
+								button.flex.items-center.justify-center.w-full.gap-2.bg-blue-200.rounded-md.transition-colors(type="button" class="min-w-full sm:min-w-42.5 h-9 hover:bg-gray-200")
+									span.flex.items-center.justify-center.w-4.h-4.text-black-150.text-base.shrink-0
+										+svg('icon-checkmark')
+									span.text-black-100.text-sm.font-medium Застосувати
+				.flex
+					button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-5 gap-2 h-12.5 hover:bg-white-50")
+						span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
+							+svg('icon-edit')
+						span Змінити...
+				.flex
+					button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-5 gap-2 h-12.5 hover:bg-white-50")
+						span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
+							+svg('icon-archive')
+						span Архівувати
+				.flex
+					button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-3.75 gap-2 h-12.5 hover:bg-white-50")
+						span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
+							+svg('icon-ellipsis')
+			table.w-full.text-sm.text-left
+				tbody
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+							.flex.items-center.justify-start(class="gap-2.5")
+								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								spant #45635
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+							.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
+								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
+									img(src="/images/temporary/good-img.png", alt="img")
+								.grow.overflow-hidden.text-ellipsis.min-w-15
+									span Переноска пластикова S
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") A1-001
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Переноски
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Pet Store
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+							+table-buttons()
 		+pager()
 
 mixin table-list-orders(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -390,7 +481,7 @@ mixin table-list-orders(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Відвантаження
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -412,11 +503,7 @@ mixin table-list-orders(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Відвантажено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
@@ -439,17 +526,13 @@ mixin table-list-orders(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-orange-50.rounded-md.text-orange-100.font-medium(class="px-2 py-0.5 min-w-32.5") Очікується
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 		+pager()
 
 mixin table-list-orders-goods(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -466,7 +549,7 @@ mixin table-list-orders-goods(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Відвантаження
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -486,18 +569,14 @@ mixin table-list-orders-goods(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Відвантажено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 					
 		+pager()
 
 mixin table-list-customers(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -513,7 +592,7 @@ mixin table-list-customers(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Дата
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -528,17 +607,13 @@ mixin table-list-customers(data)
 								span.text-gray-900 вул. Саксаганського, 12
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 		+pager()
 
 mixin table-list-shipment(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -554,7 +629,7 @@ mixin table-list-shipment(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -578,11 +653,7 @@ mixin table-list-shipment(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Завершено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
@@ -604,17 +675,13 @@ mixin table-list-shipment(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-orange-50.rounded-md.text-orange-100.font-medium(class="px-2 py-0.5 min-w-32.5") В процесі
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 		+pager()
 
 mixin table-list-sales(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -630,7 +697,7 @@ mixin table-list-sales(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Менеджер
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -650,17 +717,13 @@ mixin table-list-sales(data)
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Оплачено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Іван Петров
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 		+pager()
 
 mixin table-list-inventory(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -676,7 +739,7 @@ mixin table-list-inventory(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Відповідальний
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -693,17 +756,13 @@ mixin table-list-inventory(data)
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Завершено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Іван Петров
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 		+pager()
 
 mixin table-list-production(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -720,7 +779,7 @@ mixin table-list-production(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -739,17 +798,13 @@ mixin table-list-production(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Завершено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 		+pager()
 
 mixin table-list-product-sets(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -765,7 +820,7 @@ mixin table-list-product-sets(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -783,17 +838,13 @@ mixin table-list-product-sets(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 		+pager()
 
 mixin table-list-supply(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
 		+filters()
-		.flex.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
 			table.w-full.text-sm.text-left
 				thead.sticky.top-0.left-0.bg-white-50
 					tr
@@ -810,7 +861,7 @@ mixin table-list-supply(data)
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Поставка
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.js-table-info-open.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.flex.items-center.justify-start(class="gap-2.5")
 								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
@@ -823,7 +874,7 @@ mixin table-list-supply(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Головний склад
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							button.js-popover-trigger.flex.items-center.justify-start(type="button" class="gap-1.25")
-								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl.relative(class="group/popover")
+								span.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl.relative(class="group/popover")
 									+svg('icon-view')
 									+array-popover()
 								span.font-medium.text-sm.text-black-100 5
@@ -833,9 +884,5 @@ mixin table-list-supply(data)
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Прийнято
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-center
-								button.flex.items-center.justify-center.w-10.h-10.rounded-l-xss.bg-blue-200.text-gray-150.text-xl.border-r.border-solid.shrink-0.transition-colors(type="button" class="border-gray-550/[.15] hover:bg-blue-200/[.8]")
-									+svg('icon-edit')
-								button.flex.items-center.justify-center.w-10.h-10.rounded-r-xss.bg-blue-200.text-gray-150.text-xl.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/[.8]")
-									+svg('icon-ellipsis')
+							+table-buttons()
 		+pager()

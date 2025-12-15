@@ -6,5 +6,12 @@ mixin navigation(data)
 			button.flex.items-center.justify-center.w-5.h-5.text-xl.text-gray-550.transition-colors(type="button" class="scale-x-[-1] hover:text-black-100")
 				+svg('icon-arrow-left')
 		.text-sm.text-gray-250 Товари
-		button.flex.items-center.justify-center.w-5.h-5.text-xl.text-gray-550.transition-colors(type="button" class="hover:text-black-100")
-			+svg('icon-ellipsis')
+		.dropdown.dropdown-right.relative.flex.items-center.justify-center(class="group/dropdown-options")
+			button.dropdown-trigger.flex.items-center.justify-center.w-5.h-5.text-xl.text-gray-550.transition-colors(type="button" class="hover:text-black-100")
+				+svg('icon-ellipsis')
+			.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+				.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+				.flex.flex-col.p-1
+					button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+					button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+					button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3

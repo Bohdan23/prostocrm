@@ -65,6 +65,7 @@ block content
 				+svg('icon-captions')
 				+svg('icon-clipboard-list')
 				+svg('icon-archive-restore')
+				+svg('icon-archive')
 				+svg('icon-brick-wall')
 				+svg('icon-cat-goods')
 				+svg('icon-book-open-text')
@@ -84,13 +85,24 @@ block content
 				+svg('icon-file-symlink')
 				+svg('icon-file-pen')
 				+svg('icon-list-plus')
+				+svg('icon-pencil-line')
 
 
 	.pb-14.px-2.pt-25(class="md:pt-19.5 md:px-6 md:pb-6")
 		.container.mx-auto(class="md:container xl:container 2xl:container")
 			.flex.justify-start.items-start.flex-wrap.gap-6
-				//- button.js-open-modal.flex.justify-center.items-center.bg-primary.h-8.px-4.rounded-lg.text-white.font-bold.text-sm.transition-colors(type="button" class="md:px-5 md:h-10 gap-x-2.5 hover:bg-primary/80" data-modal="1")
-				//- 	span Modal token info
+				.flex.flex-col.gap-2.items-start.justify-start
+					span.text-black-100 Dropdown bottom/left - #[br] no additional classes
+					
+				.flex.flex-col.gap-2.items-start.justify-start
+					span.text-black-100 Dropdown top/left - #[br] add class "dropdown-top"
+					
+				.flex.flex-col.gap-2.items-start.justify-start
+					span.text-black-100 Dropdown top/right - add classes #[br] "dropdown-top" and "dropdown-right" 
+					
+				.flex.flex-col.gap-2.items-start.justify-start
+					span.text-black-100 Dropdown bottom/right - #[br] add class  "dropdown-right" 
+					
 	
 block modals
 	.modal-overlay.opacity-0.fixed.top-0.left-0.w-full.h-full.z-40.pointer-events-none(class="bg-black/[.8]")

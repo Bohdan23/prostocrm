@@ -1,27 +1,45 @@
 mixin sidebar(data)
-	.js-sidebar.group.sidebar.flex.items-end.justify-center.h-full.fixed.pointer-events-none.opacity-0.transition-all(class="w-full bg-gray-150/60 inset-0 z-20 p-2.5 pb-0 lg:[&.is-minimized]:w-15 lg:[&.is-minimized]:overflow-hidden lg:w-67.5 lg:relative lg:bg-transparent lg:p-0 lg:pointer-events-auto lg:opacity-100 lg:shrink-0 [&.is-active]:opacity-100 [&.is-active]:pointer-events-auto")
-		.flex.flex-col.items-start.w-100.bg-sidebar-fill.border.border-solid.border-gray-50.mt-auto.translate-y-full.max-h-full.transition-transform(class="rounded-t-xss lg:w-full lg:rounded-xss lg:h-full lg:translate-y-0 group-[.is-active]:translate-y-0")
-			.w-full.flex.flex-col.items-start.h-full.overflow-hidden(class="gap-2.5")
-				.w-full.flex.items-center.justify-start(class="gap-1.25 pt-2.5 px-2")
+	.js-sidebar.flex.items-end.justify-center.h-full.fixed.pointer-events-none.opacity-0.transition-all(class="group/sidebar w-full bg-gray-150/60 inset-0 z-20 p-2.5 pb-0 lg:[&.is-minimized]:w-15 lg:[&.is-minimized]:overflow-hidden lg:w-67.5 lg:relative lg:bg-transparent lg:p-0 lg:pointer-events-auto lg:opacity-100 lg:shrink-0 [&.is-active]:opacity-100 [&.is-active]:pointer-events-auto")
+		.flex.flex-col.items-start.w-100.bg-sidebar-fill.mt-auto.translate-y-full.max-h-full.transition-transform.relative(class="pt-15.5 rounded-t-xss lg:border lg:border-solid lg:border-gray-50 lg:w-full lg:rounded-xss lg:h-full lg:translate-y-0 group-[.is-active]/sidebar:translate-y-0 after:content-[''] after:flex after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 lg:after:rounded-xss after:bg-gray-150/60 after:transition-opacity after:pointer-events-none after:opacity-0 group-[.is-adding]/sidebar:after:opacity-100 group-[.is-adding]/sidebar:after:pointer-events-auto")
+			.absolute.flex.flex-col.z-30.transition-all.pointer-events-none(class="w-[calc(100%_+_2px)] -top-px -left-px rounded-xss group-[.is-adding]/sidebar:pointer-events-auto after:content-[''] after:flex after:absolute after:w-full after:h-full after:z-0 after:rounded-xss after:bg-sidebar-fill after:border after:border-solid after:border-gray-50 after:pointer-events-none after:transition-opacity after:opacity-0 group-[.is-adding]/sidebar:after:opacity-100 group-[.is-minimized]/sidebar:after:opacity-0")
+				button.js-sidebar-add-company.w-full.flex.items-center.justify-start.relative.z-10.pointer-events-auto(type="button" class="gap-1.25 pt-2.5 px-2 pb-2.5 group-[.is-minimized]/sidebar:pointer-events-none")
 					.flex.items-center.justify-center.w-10.h-10.overflow-hidden(class="rounded-xss shrink-0")
 						img(src="/images/temporary/sidebar-img.png", alt="img")
-					.flex.flex-col.justify-center.items-start.gap-1(class="group-[.is-minimized]:lg:invisible group-[.is-minimized]:lg:pointer-events-none")
+					.flex.flex-col.justify-center.items-start.gap-1(class="group-[.is-minimized]/sidebar:lg:invisible group-[.is-minimized]/sidebar:lg:pointer-events-none")
 						span.text-gray-150.font-extrabold.text-sm.uppercase Petstore
 						.flex.items-center.justify-start.gap-3
 							span.text-gray-100.text-xs.font-normal(class="relative after:content-[''] after:block after:rounded-full after:bg-gray-100 after:w-0.5 after:h-0.5 after:absolute after:top-[50%] after:-mb-px after:-right-1.5") Микола
 							span.text-gray-100.text-xs.font-normal Керівник
-					button.flex.items-center.justify-center.w-5.h-5.text-black-50.text-xl.ml-auto.transition-colors(type="button" class="shrink-0 hover:text-gray-100 group-[.is-minimized]:lg:invisible group-[.is-minimized]:lg:pointer-events-none")
+					.flex.items-center.justify-center.w-5.h-5.text-black-50.text-xl.ml-auto.transition-colors(class="shrink-0 hover:text-gray-100 group-[.is-minimized]/sidebar:lg:invisible group-[.is-minimized]/sidebar:lg:pointer-events-none")
 						+svg('icon-chevrons')
+				.w-full.flex.flex-col.items-start.justify-start.relative.z-10.opacity-0.pointer-events-none.transition-opacity(class="group-[.is-minimized]/sidebar:hidden group-[.is-adding]/sidebar:opacity-100 group-[.is-adding]/sidebar:pointer-events-auto")
+					button.w-full.flex.items-center.justify-start.border-t.border-solid.border-gray-650(type="button" class="min-h-12.5 px-2.5")
+						span.flex.items-center.justify-center.w-10.h-10.shrink-0.rounded-xs.overflow-hidden(class="mr-2.5")
+							img(src="/images/temporary/sidebar-img2.png", alt="img")
+						span.flex.items-center.justify-start.text-black-100.text-sm.font-medium.grow.text-ellipses.overflow-hidden Dog&Co
+						span.flex.items-center.justify-center.shrink-0.text-base.h-9.w-8.text-black-50
+							+svg('icon-chevron')
+					button.w-full.flex.items-center.justify-start.border-t.border-solid.border-gray-650(type="button" class="min-h-12.5 px-2.5")
+						span.flex.items-center.justify-center.w-10.h-10.shrink-0.rounded-xs.overflow-hidden(class="mr-2.5")
+							img(src="/images/temporary/sidebar-img2.png", alt="img")
+						span.flex.items-center.justify-start.text-black-100.text-sm.font-medium.grow.text-ellipses.overflow-hidden VetCare Pro
+						span.flex.items-center.justify-center.shrink-0.text-base.h-9.w-8.text-black-50
+							+svg('icon-chevron')
+					button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.rounded-b-xss.transition-colors(type="button" class="hover:bg-blue-200/80")
+						span.flex.items-center.justify-center.w-5.h-5.text-xl
+							+svg('icon-plus-circle')
+						span.font-medium Додати компанію
+			.w-full.flex.flex-col.items-start.h-full.overflow-hidden(class="gap-2.5")
 				.w-full.flex.items-center.justify-start(class="gap-1.25 px-2")
-					button.flex.items-center.justify-start.grow.h-10.rounded-xs.bg-white-200.border.border-solid.border-gray-200.text-gray-150.font-medium.transition-colors(type="button" class="p-2.5 gap-1.25 hover:bg-white-50 group-[.is-minimized]:lg:hidden")
+					button.flex.items-center.justify-start.grow.h-10.rounded-xs.bg-white-200.border.border-solid.border-gray-200.text-gray-150.font-medium.transition-colors(type="button" class="p-2.5 gap-1.25 hover:bg-white-50 group-[.is-minimized]/sidebar:lg:hidden")
 						span.flex.items-center.justify-center.w-5.h-5.text-xl(class="shrink-0")
 							+svg('icon-wallet')
 						span.text-xss(class="shrink-0") 250 грн
-					button.flex.items-center.justify-start.h-10.rounded-xs.bg-white-200.border.border-solid.border-gray-200.text-gray-150.font-medium.transition-colors(type="button" class="min-w-10 p-2.5 gap-1.25 hover:bg-white-50 group-[.is-minimized]:lg:w-full")
+					button.flex.items-center.justify-start.h-10.rounded-xs.bg-white-200.border.border-solid.border-gray-200.text-gray-150.font-medium.transition-colors(type="button" class="min-w-10 p-2.5 gap-1.25 hover:bg-white-50 group-[.is-minimized]/sidebar:lg:w-full")
 						span.flex.items-center.justify-center.w-5.h-5.text-xl(class="shrink-0")
 							+svg('icon-crm')
-						span.text-xss(class="group-[.is-minimized]:lg:hidden") CRM
-					button.flex.items-center.justify-start.w-10.h-10.rounded-xs.bg-white-200.border.border-solid.border-gray-200.text-gray-150.font-medium.transition-colors(type="button" class="p-2.5 gap-1.25 hover:bg-white-50 group-[.is-minimized]:lg:hidden")
+						span.text-xss(class="group-[.is-minimized]/sidebar:lg:hidden") CRM
+					button.flex.items-center.justify-start.w-10.h-10.rounded-xs.bg-white-200.border.border-solid.border-gray-200.text-gray-150.font-medium.transition-colors(type="button" class="p-2.5 gap-1.25 hover:bg-white-50 group-[.is-minimized]/sidebar:lg:hidden")
 						span.flex.items-center.justify-center.w-5.h-5.text-xl(class="shrink-0")
 							+svg('icon-settings')
 				.w-full(class="px-2")
@@ -30,100 +48,100 @@ mixin sidebar(data)
 					.w-full.relative
 						.flex.items-center.justify-center.w-4.h-4.text-base.absolute.pointer-events-none.z-2(class="top-[50%] -mt-2 left-2.5")
 							+svg('icon-search')
-						input.w-full.rounded-xs.bg-white-50.border.border-solid.border-gray-200.text-black-50.font-normal.text-xs.transition-all(type="text" class="shadow-input h-7.5 pl-7.5 pr-10 placeholder:text-gray-500 placeholder:font-normal placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] group-[.is-minimized]:lg:px-1 group-[.is-minimized]:lg:placeholder:opacity-[0]" placeholder="Пошук...")
-						span.flex.items-center.justify-center.w-4.h-4.text-gray-250.text-xs.font-medium.absolute.pointer-events-none.z-2(class="top-[50%] -mt-2 right-2.5 group-[.is-minimized]:lg:hidden") ⌘K
+						input.w-full.rounded-xs.bg-white-50.border.border-solid.border-gray-200.text-black-50.font-normal.text-xs.transition-all(type="text" class="shadow-input h-7.5 pl-7.5 pr-10 placeholder:text-gray-500 placeholder:font-normal placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] group-[.is-minimized]/sidebar:lg:px-1 group-[.is-minimized]/sidebar:lg:placeholder:opacity-[0]" placeholder="Пошук...")
+						span.flex.items-center.justify-center.w-4.h-4.text-gray-250.text-xs.font-medium.absolute.pointer-events-none.z-2(class="top-[50%] -mt-2 right-2.5 group-[.is-minimized]/sidebar:lg:hidden") ⌘K
 				.w-full.grow.flex.flex-col.justify-start.gap-5(class="pb-5 px-2 overflow-hidden overflow-y-auto lg:pb-2.5")
 					.grid(class="gap-2.5")
-						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]:lg:-translate-x-2.5" href="javascript:void(0);")
-							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]:lg:translate-x-4.75")
+						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]/sidebar:lg:-translate-x-2.5" href="javascript:void(0);")
+							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]/sidebar:lg:translate-x-4.75")
 								+svg('icon-analytics')
-							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Зведена аналітика
-							.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2  group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none")
+							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Зведена аналітика
+							.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2  group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none")
 								+svg('icon-chevron')
 					.grid(class="gap-2.5")
-						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]:lg:-translate-x-2.5" href="javascript:void(0);")
-							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]:lg:translate-x-4.75")
+						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]/sidebar:lg:-translate-x-2.5" href="javascript:void(0);")
+							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]/sidebar:lg:translate-x-4.75")
 								+svg('icon-users')
-							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Клієнти
-							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none")
+							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Клієнти
+							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none")
 								+svg('icon-chevron')
 					.grid(class="gap-2.5")
-						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]:lg:-translate-x-2.5" href="javascript:void(0);")
-							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]:lg:translate-x-4.75")
+						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]/sidebar:lg:-translate-x-2.5" href="javascript:void(0);")
+							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]/sidebar:lg:translate-x-4.75")
 								+svg('icon-companies')
-							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Компанії та магазини
-							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none")
+							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Компанії та магазини
+							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none")
 								+svg('icon-chevron')
 					.grid(class="gap-2.5")
-						a.sidebar-item-active.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]:lg:-translate-x-2.5" href="javascript:void(0);")
-							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]:lg:translate-x-4.75")
+						a.sidebar-item-active.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]/sidebar:lg:-translate-x-2.5" href="javascript:void(0);")
+							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]/sidebar:lg:translate-x-4.75")
 								+svg('icon-categories')
-							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Товари та категорії
-							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none")
+							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Товари та категорії
+							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none")
 								+svg('icon-chevron')
-						ul.grid.transition-all(class="pl-2.5 group-[.is-minimized]:lg:pl-0")
-							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]:lg:pl-0 group-[.is-minimized]:lg:before:hidden group-[.is-minimized]:lg:after:left-4.5 group-[.is-minimized]:lg:after:bottom-full")
-								a.sidebar-subitem-active.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]:lg:w-7.5 group-[.is-minimized]:lg:translate-x-1" href="javascript:void(0);")
-									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]/item:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
+						ul.grid.transition-all(class="pl-2.5 group-[.is-minimized]/sidebar:lg:pl-0")
+							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]/sidebar:lg:pl-0 group-[.is-minimized]/sidebar:lg:before:hidden group-[.is-minimized]/sidebar:lg:after:left-4.5 group-[.is-minimized]/sidebar:lg:after:bottom-full")
+								a.sidebar-subitem-active.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all border border-solid border-transparent rounded-xs hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:bg-gray-400 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:border-gray-300 group-[.is-minimized]/sidebar:lg:w-7.5 group-[.is-minimized]/sidebar:lg:translate-x-1" href="javascript:void(0);")
+									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]/item:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]/sidebar:lg:opacity-40 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:opacity-100 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
 										+svg('icon-book-image')
-									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.sidebar-subitem-active]/item:text-blue-50 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Товари
-									span.ml-auto.text-xs.font-medium.transition-opacity(class="group-[.sidebar-subitem-active]/item:text-blue-50 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") 124
-							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]:lg:pl-0 group-[.is-minimized]:lg:before:hidden group-[.is-minimized]:lg:after:left-4.5 group-[.is-minimized]:lg:after:bottom-full")
-								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]:lg:w-7.5 group-[.is-minimized]:lg:translate-x-1" href="javascript:void(0);")
-									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
+									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.sidebar-subitem-active]/item:text-blue-50 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Товари
+									span.ml-auto.text-xs.font-medium.transition-opacity(class="group-[.sidebar-subitem-active]/item:text-blue-50 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") 124
+							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]/sidebar:lg:pl-0 group-[.is-minimized]/sidebar:lg:before:hidden group-[.is-minimized]/sidebar:lg:after:left-4.5 group-[.is-minimized]/sidebar:lg:after:bottom-full")
+								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all border border-solid border-transparent rounded-xs hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:bg-gray-400 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:border-gray-300 group-[.is-minimized]/sidebar:lg:w-7.5 group-[.is-minimized]/sidebar:lg:translate-x-1" href="javascript:void(0);")
+									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]/sidebar:lg:opacity-40 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:opacity-100 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
 										+svg('icon-book-open-text')
-									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Варіації товарів
-							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]:lg:pl-0 group-[.is-minimized]:lg:before:hidden group-[.is-minimized]:lg:after:left-4.5 group-[.is-minimized]:lg:after:bottom-full")
-								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]:lg:w-7.5 group-[.is-minimized]:lg:translate-x-1" href="javascript:void(0);")
-									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
+									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Варіації товарів
+							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]/sidebar:lg:pl-0 group-[.is-minimized]/sidebar:lg:before:hidden group-[.is-minimized]/sidebar:lg:after:left-4.5 group-[.is-minimized]/sidebar:lg:after:bottom-full")
+								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all border border-solid border-transparent rounded-xs hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:bg-gray-400 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:border-gray-300 group-[.is-minimized]/sidebar:lg:w-7.5 group-[.is-minimized]/sidebar:lg:translate-x-1" href="javascript:void(0);")
+									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]/sidebar:lg:opacity-40 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:opacity-100 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
 										+svg('icon-cat-goods')
-									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Категорії товарів
-									span.ml-auto.text-xs.font-medium.transition-opacity(class="group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") 12
-							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]:lg:pl-0 group-[.is-minimized]:lg:before:hidden group-[.is-minimized]:lg:after:left-4.5 group-[.is-minimized]:lg:after:bottom-full")
-								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]:lg:w-7.5 group-[.is-minimized]:lg:translate-x-1" href="javascript:void(0);")
-									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
+									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Категорії товарів
+									span.ml-auto.text-xs.font-medium.transition-opacity(class="group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") 12
+							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]/sidebar:lg:pl-0 group-[.is-minimized]/sidebar:lg:before:hidden group-[.is-minimized]/sidebar:lg:after:left-4.5 group-[.is-minimized]/sidebar:lg:after:bottom-full")
+								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all border border-solid border-transparent rounded-xs hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:bg-gray-400 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:border-gray-300 group-[.is-minimized]/sidebar:lg:w-7.5 group-[.is-minimized]/sidebar:lg:translate-x-1" href="javascript:void(0);")
+									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]/sidebar:lg:opacity-40 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:opacity-100 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
 										+svg('icon-brick-wall')
-									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Набори товарів
-									span.ml-auto.text-xs.font-medium.transition-opacity(class="group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") 15
-							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]:lg:pl-0 group-[.is-minimized]:lg:before:hidden group-[.is-minimized]:lg:after:left-4.5 group-[.is-minimized]:lg:after:bottom-full")
-								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]:lg:w-7.5 group-[.is-minimized]:lg:translate-x-1" href="javascript:void(0);")
-									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
+									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Набори товарів
+									span.ml-auto.text-xs.font-medium.transition-opacity(class="group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") 15
+							li.relative.pl-4(class="pb-2.5 before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat after:content-[''] after:flex after:absolute after:w-px after:left-0 after:h-2.5 after:bg-gray-300 after:bottom-0 group-[.is-minimized]/sidebar:lg:pl-0 group-[.is-minimized]/sidebar:lg:before:hidden group-[.is-minimized]/sidebar:lg:after:left-4.5 group-[.is-minimized]/sidebar:lg:after:bottom-full")
+								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all border border-solid border-transparent rounded-xs hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:bg-gray-400 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:border-gray-300 group-[.is-minimized]/sidebar:lg:w-7.5 group-[.is-minimized]/sidebar:lg:translate-x-1" href="javascript:void(0);")
+									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]/sidebar:lg:opacity-40 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:opacity-100 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
 										+svg('icon-archive-restore')
-									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Товари в магазинах
-									span.ml-auto.text-xs.font-medium.transition-opacity(class="group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") 78
-							li.relative.pl-4(class="before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat group-[.is-minimized]:lg:pl-0 group-[.is-minimized]:lg:before:hidden group-[.is-minimized]:lg:after:content-[''] group-[.is-minimized]:lg:after:flex group-[.is-minimized]:lg:after:absolute group-[.is-minimized]:lg:after:w-px group-[.is-minimized]:lg:after:h-2.5 group-[.is-minimized]:lg:after:bg-gray-300 group-[.is-minimized]:lg:after:left-4.5 group-[.is-minimized]:lg:after:bottom-full")
-								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]:lg:w-7.5 group-[.is-minimized]:lg:translate-x-1" href="javascript:void(0);")
-									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
+									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Товари в магазинах
+									span.ml-auto.text-xs.font-medium.transition-opacity(class="group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") 78
+							li.relative.pl-4(class="before:content-[''] before:flex before:absolute before:w-3 before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-full last:before:bg-sidebar-list-item-last before:bg-sidebar-list-item before:bg-contain before:bg-no-repeat group-[.is-minimized]/sidebar:lg:pl-0 group-[.is-minimized]/sidebar:lg:before:hidden group-[.is-minimized]/sidebar:lg:after:content-[''] group-[.is-minimized]/sidebar:lg:after:flex group-[.is-minimized]/sidebar:lg:after:absolute group-[.is-minimized]/sidebar:lg:after:w-px group-[.is-minimized]/sidebar:lg:after:h-2.5 group-[.is-minimized]/sidebar:lg:after:bg-gray-300 group-[.is-minimized]/sidebar:lg:after:left-4.5 group-[.is-minimized]/sidebar:lg:after:bottom-full")
+								a.flex.items-center.justify-start.relative.rounded-xs.text-gray-150.transition-all(class="group/item sidebar-subitem gap-1.25 min-h-7.5 p-1.25 transition-all border border-solid border-transparent rounded-xs hover:text-blue-50 [&.sidebar-subitem-active]:bg-blue-900 group-[:not(.is-minimized)]:hover:bg-gray-450 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:bg-gray-400 group-[.is-minimized]/sidebar:[&.sidebar-subitem-active]:border-gray-300 group-[.is-minimized]/sidebar:lg:w-7.5 group-[.is-minimized]/sidebar:lg:translate-x-1" href="javascript:void(0);")
+									.flex.items-center.justify-center.text-lg.text-gray-150.transition-colors(class="w-4.5 h-4.5 shrink-0 group-[.sidebar-subitem-active]:text-blue-50 group-[.sidebar-subitem:hover]/item:text-blue-50 group-[.is-minimized]/sidebar:lg:opacity-40 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:opacity-100 group-[.is-minimized]/sidebar:lg:group-[.sidebar-subitem-active]/item:text-gray-150")
 										+svg('icon-clipboard-list')
-									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Ціни в магазинах
+									span.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Ціни в магазинах
 					.grid(class="gap-2.5")
-						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]:lg:-translate-x-2.5" href="javascript:void(0);")
-							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]:lg:translate-x-4.75")
+						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]/sidebar:lg:-translate-x-2.5" href="javascript:void(0);")
+							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]/sidebar:lg:translate-x-4.75")
 								+svg('icon-captions')
-							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Складський облік
-							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none")
+							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Складський облік
+							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none")
 								+svg('icon-chevron')
 					.grid(class="gap-2.5")
-						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]:lg:-translate-x-2.5" href="javascript:void(0);")
-							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]:lg:translate-x-4.75")
+						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]/sidebar:lg:-translate-x-2.5" href="javascript:void(0);")
+							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]/sidebar:lg:translate-x-4.75")
 								+svg('icon-database-zap')
-							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Продажі
-							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none")
+							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Продажі
+							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none")
 								+svg('icon-chevron')
 					.grid(class="gap-2.5")
-						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]:lg:-translate-x-2.5" href="javascript:void(0);")
-							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]:lg:translate-x-4.75")
+						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]/sidebar:lg:-translate-x-2.5" href="javascript:void(0);")
+							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]/sidebar:lg:translate-x-4.75")
 								+svg('icon-bus')
-							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Логістика та доставка
-							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none")
+							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Логістика та доставка
+							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none")
 								+svg('icon-chevron')
 					.grid(class="gap-2.5")
-						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]:lg:-translate-x-2.5" href="javascript:void(0);")
-							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]:lg:translate-x-4.75")
+						a.flex.items-center.justify-start.relative.transition-transform(class="gap-1.25 group-[.is-minimized]/sidebar:lg:-translate-x-2.5" href="javascript:void(0);")
+							.flex.items-center.justify-center.text-xl.w-5.h-5.text-gray-150.transition-transform(class="shrink-0 group-[.is-minimized]/sidebar:lg:translate-x-4.75")
 								+svg('icon-logistic')
-							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none") Постачання / замовлення
-							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]:lg:opacity-0 group-[.is-minimized]:lg:pointer-events-none")
+							span.text-gray-150.text-xss.font-medium.transition-opacity(class="shrink-0 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none") Постачання / замовлення
+							.sidebar-item-icon.flex.items-center.justify-center.text-base.w-4.h-4.absolute.right-0.transition-all(class="shrink-0 top-[50%] -mt-2 group-[.is-minimized]/sidebar:lg:opacity-0 group-[.is-minimized]/sidebar:lg:pointer-events-none")
 								+svg('icon-chevron')
 				button.js-minimize-sidebar.hidden(type="button" class="lg:w-full lg:flex lg:items-center lg:justify-center lg:rounded-b-2.5 lg:h-7.5 lg:border-t lg:border-gray-50 lg:shrink-0")
-					span.flex.items-center.justify-center.transition-transform(class="group-[.is-minimized]:lg:rotate-180")
+					span.flex.items-center.justify-center.transition-transform(class="group-[.is-minimized]/sidebar:lg:rotate-180")
 						+svg('icon-chevrons-left')

@@ -199,6 +199,7 @@ module.exports = {
         'xxs': '0.375rem', // 6px
         'xxss': '0.4375rem', // 7px
         'xss': '0.625rem', // 10px
+        'xll': '0.875rem', // 14px
       },
       backgroundImage: {
         'upload-file-img': "url('../images/svg/upload-file.svg')",

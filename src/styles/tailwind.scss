@@ -25,8 +25,4 @@
     .tab.is-active {
         @apply bg-white-50 border-gray-500 before:opacity-100 after:top-[initial] after:translate-y-0 after:w-2.5 after:h-2.5 after:bottom-0 after:bg-tab-corner after:bg-contain after:bg-no-repeat after:scale-x-[-1];
     }
-
-    .is-required {
-        @apply relative after:content-['*'] after:flex after:absolute after:text-red-50 after:-top-0.5 after:-right-2.5;
-    }
 }

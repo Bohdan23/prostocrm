@@ -16,7 +16,7 @@ mixin table-card-goods(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
 				.flex.flex-col.items-start.justify-start.gap-1.w-full
 					span.text-sm.font-medium.text-black-100 Фото
 					.flex.items-start.justify-start.flex-wrap(class="gap-2.5")
@@ -51,16 +51,22 @@ mixin table-card-goods(data)
 								input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
 							.flex.items-center.justify-start.grow(class="min-h-12.5 p-2.5")
 								span.text-gray-250.text-sm.font-medium Опції
-							.flex.items-center.justify-start.shrink-0(class="min-h-12.5 w-12.5 p-2.5")
-								button.flex.items-center.justify-center.text-base.text-gray-150.rounded-lg.bg-blue-200.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/80")
+							.dropdown.dropdown-right.relative.flex.items-center.justify-start.shrink-0(class="group/dropdown-options min-h-12.5 w-12.5 p-2.5")
+								button.dropdown-trigger.flex.items-center.justify-center.text-base.text-gray-150.rounded-lg.bg-blue-200.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/80")
 									+svg('icon-ellipsis')
+								.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_-_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_-_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+									.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+									.flex.flex-col.p-1
+										button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+										button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+										button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 						button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.transition-colors(type="button" class="hover:bg-blue-200/80")
 							span.flex.items-center.justify-center.w-5.h-5.text-xl
 								+svg('icon-plus-circle')
 							span.font-medium Додати властивость
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
-						span.text-sm.font-medium.text-black-100.is-required Опис
+						span.is-required.text-sm.font-medium.text-black-100(class="[&.is-required]:relative [&.is-required]:after:content-['*'] [&.is-required]:after:flex [&.is-required]:after:absolute [&.is-required]:after:text-red-50 [&.is-required]:after:-top-0.5 [&.is-required]:after:-right-2.5") Опис
 						.flex.w-full
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
@@ -90,13 +96,13 @@ mixin table-card-orders(data)
 						+svg('icon-plus-circle')
 					button.flex.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200")
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
-							+svg('icon-save')
-						span.hidden(class="xl:flex") Зберегти
+							+svg('icon-pencil-line')
+						span.hidden(class="xl:flex") Редагувати
 					button.js-relationships-open.hidden.items-center.justify-center.shrink-0.border.border-solid.border-gray-650.rounded-md.text-gray-150.font-semibold.transition-colors(type="button" class="p-1.25 gap-1.25 h-7.5 hover:bg-blue-200 lg:flex lg:[&.is-hidden]:hidden")
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Номер замовлення
@@ -107,8 +113,8 @@ mixin table-card-orders(data)
 				.flex.items-start.justify-start.w-full
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Товари в замовленні
-						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
-							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full
+							.flex.w-full
 								table.w-full.text-sm.text-left
 									thead.sticky.top-0.left-0.bg-white-50
 										tr
@@ -120,33 +126,26 @@ mixin table-card-orders(data)
 										tr.transition-colors.border-t.border-solid.border-gray-650
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
+												.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 														img(src="/images/temporary/good-img.png", alt="img")
-													span Переноска пластикова S
+													.grow.overflow-hidden.text-ellipsis
+														span.whitespace-nowrap Переноска пластикова S
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												.flex.items-center.justify-center
 													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
 														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
-										tr.transition-colors.border-t.border-solid.border-gray-650
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
-													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
-														img(src="/images/temporary/good-img.png", alt="img")
-													span Переноска пластикова S
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
-												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
-												.flex.items-center.justify-center
-													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
-														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
+													.dropdown.dropdown-right.relative.flex.items-center.justify-center.shrink-0(class="group/dropdown-options")
+														button.dropdown-trigger.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+															+svg('icon-ellipsis')
+														.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+															.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+															.flex.flex-col.p-1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
 								span.flex.items-center.justify-center.w-5.h-5.text-xl
 									+svg('icon-plus-circle')
@@ -229,7 +228,7 @@ mixin table-card-orders-goods(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
 				.flex.flex-col.items-start.justify-start.gap-1.w-full
 					span.text-sm.font-medium.text-black-100 Фото
 					.flex.items-start.justify-start.flex-wrap(class="gap-2.5")
@@ -246,7 +245,7 @@ mixin table-card-orders-goods(data)
 					input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Назва" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Переноска пластикова S")
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
-						span.text-sm.font-medium.text-black-100.is-required Опис
+						span.text-sm.font-medium.text-black-100.is-required(class="[&.is-required]:relative [&.is-required]:after:content-['*'] [&.is-required]:after:flex [&.is-required]:after:absolute [&.is-required]:after:text-red-50 [&.is-required]:after:-top-0.5 [&.is-required]:after:-right-2.5") Опис
 						.flex.w-full
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
@@ -314,7 +313,7 @@ mixin table-card-customers(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
 				.flex.items-start.justify-start.w-full
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 ID
@@ -364,7 +363,7 @@ mixin table-card-shipment(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 ID
@@ -394,8 +393,8 @@ mixin table-card-shipment(data)
 				.flex.items-start.justify-start.w-full
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Позиції до збору
-						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
-							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full
+							.flex.w-full
 								table.w-full.text-sm.text-left
 									thead.sticky.top-0.left-0.bg-white-50
 										tr
@@ -407,33 +406,26 @@ mixin table-card-shipment(data)
 										tr.transition-colors.border-t.border-solid.border-gray-650
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
+												.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 														img(src="/images/temporary/cat-food.png", alt="img")
-													span Корм для котів (основа)
+													.grow.overflow-hidden.text-ellipsis
+														span.whitespace-nowrap Корм для котів (основа)
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												.flex.items-center.justify-center
 													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
 														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
-										tr.transition-colors.border-t.border-solid.border-gray-650
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
-													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
-														img(src="/images/temporary/cat-food.png", alt="img")
-													span Пакети для фасування
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
-												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
-												.flex.items-center.justify-center
-													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
-														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
+													.dropdown.dropdown-right.relative.flex.items-center.justify-center.shrink-0(class="group/dropdown-options")
+														button.dropdown-trigger.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+															+svg('icon-ellipsis')
+														.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+															.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+															.flex.flex-col.p-1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 		+relationships()
 
 mixin table-card-sales(data)
@@ -454,7 +446,7 @@ mixin table-card-sales(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 ID
@@ -487,8 +479,8 @@ mixin table-card-sales(data)
 				.flex.items-start.justify-start.w-full
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Продані товари
-						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
-							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full
+							.flex.w-full
 								table.w-full.text-sm.text-left
 									thead.sticky.top-0.left-0.bg-white-50
 										tr
@@ -500,33 +492,26 @@ mixin table-card-sales(data)
 										tr.transition-colors.border-t.border-solid.border-gray-650
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
+												.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 														img(src="/images/temporary/cat-food.png", alt="img")
-													span Корм для котів (основа)
+													.grow.overflow-hidden.text-ellipsis
+														span.whitespace-nowrap Корм для котів (основа)
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												.flex.items-center.justify-center
 													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
 														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
-										tr.transition-colors.border-t.border-solid.border-gray-650
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
-													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
-														img(src="/images/temporary/cat-food.png", alt="img")
-													span Пакети для фасування
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
-												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
-											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
-												.flex.items-center.justify-center
-													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
-														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
+													.dropdown.dropdown-right.relative.flex.items-center.justify-center.shrink-0(class="group/dropdown-options")
+														button.dropdown-trigger.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+															+svg('icon-ellipsis')
+														.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+															.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+															.flex.flex-col.p-1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 		+relationships()
 
 mixin table-card-inventory(data)
@@ -547,7 +532,7 @@ mixin table-card-inventory(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Номер інвентаризації
@@ -576,8 +561,8 @@ mixin table-card-inventory(data)
 				.flex.items-start.justify-start.w-full
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Перелік товарів на складі
-						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
-							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full
+							.flex.w-full
 								table.w-full.text-sm.text-left
 									thead.sticky.top-0.left-0.bg-white-50
 										tr
@@ -589,18 +574,26 @@ mixin table-card-inventory(data)
 										tr.transition-colors.border-t.border-solid.border-gray-650
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
+												.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 														img(src="/images/temporary/good-img.png", alt="img")
-													span Переноска пластикова S
+													.grow.overflow-hidden.text-ellipsis
+														span.whitespace-nowrap Переноска пластикова S
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												.flex.items-center.justify-center
 													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
 														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
+													.dropdown.dropdown-right.relative.flex.items-center.justify-center.shrink-0(class="group/dropdown-options")
+														button.dropdown-trigger.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+															+svg('icon-ellipsis')
+														.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+															.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+															.flex.flex-col.p-1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
 								span.flex.items-center.justify-center.w-5.h-5.text-xl
 									+svg('icon-plus-circle')
@@ -665,8 +658,8 @@ mixin table-card-production(data)
 				.flex.items-start.justify-start.w-full
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Використані компоненти
-						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
-							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full
+							.flex.w-full
 								table.w-full.text-sm.text-left
 									thead.sticky.top-0.left-0.bg-white-50
 										tr
@@ -678,18 +671,26 @@ mixin table-card-production(data)
 										tr.transition-colors.border-t.border-solid.border-gray-650
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
+												.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 														img(src="/images/temporary/good-img.png", alt="img")
-													span Переноска пластикова S
+													.grow.overflow-hidden.text-ellipsis
+														span.whitespace-nowrap Переноска пластикова S
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												.flex.items-center.justify-center
 													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
 														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
+													.dropdown.dropdown-right.dropdown-top.relative.flex.items-center.justify-center.shrink-0(class="group/dropdown-options")
+														button.dropdown-trigger.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+															+svg('icon-ellipsis')
+														.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+															.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+															.flex.flex-col.p-1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
 								span.flex.items-center.justify-center.w-5.h-5.text-xl
 									+svg('icon-plus-circle')
@@ -714,7 +715,7 @@ mixin table-card-product-sets(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-5")
 				.flex.flex-col.items-start.justify-start.gap-1.w-full
 					span.text-sm.font-medium.text-black-100 Фото
 					.flex.items-start.justify-start.flex-wrap(class="gap-2.5")
@@ -738,13 +739,13 @@ mixin table-card-product-sets(data)
 						input.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="SKU" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="Пластик")
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
-						span.text-sm.font-medium.text-black-100.is-required Опис
+						span.text-sm.font-medium.text-black-100.is-required(class="[&.is-required]:relative [&.is-required]:after:content-['*'] [&.is-required]:after:flex [&.is-required]:after:absolute [&.is-required]:after:text-red-50 [&.is-required]:after:-top-0.5 [&.is-required]:after:-right-2.5") Опис
 						.flex.w-full
 				.flex.items-start.justify-start.w-full
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Товари
-						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
-							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full
+							.flex.w-full
 								table.w-full.text-sm.text-left
 									thead.sticky.top-0.left-0.bg-white-50
 										tr
@@ -756,18 +757,26 @@ mixin table-card-product-sets(data)
 										tr.transition-colors.border-t.border-solid.border-gray-650
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
+												.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 														img(src="/images/temporary/good-img.png", alt="img")
-													span Переноска пластикова S
+													.grow.overflow-hidden.text-ellipsis
+														span.whitespace-nowrap Переноска пластикова S
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												.flex.items-center.justify-center
 													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
 														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
+													.dropdown.dropdown-right.dropdown-top.relative.flex.items-center.justify-center.shrink-0(class="group/dropdown-options")
+														button.dropdown-trigger.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+															+svg('icon-ellipsis')
+														.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+															.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+															.flex.flex-col.p-1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
 								span.flex.items-center.justify-center.w-5.h-5.text-xl
 									+svg('icon-plus-circle')
@@ -803,7 +812,7 @@ mixin table-card-supply(data)
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.shrink-0
 							+svg('icon-panel-right-open')
 						span.hidden(class="xl:flex") Взаємозвʼязки
-			.flex.flex-col.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
+			.flex.flex-col.grow.items-start.justify-start.w-full.overflow-y-auto(class="p-2.5 gap-2.5")
 				.flex.items-start.justify-between.w-full(class="gap-2.5")
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Номер постачання
@@ -828,8 +837,8 @@ mixin table-card-supply(data)
 				.flex.items-start.justify-start.w-full
 					.flex.flex-col.items-start.justify-start.gap-1.w-full
 						span.text-sm.font-medium.text-black-100 Позиції в поставці
-						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full.overflow-hidden
-							.flex.w-full.overflow-hidden.overflow-x-auto(class="[-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden")
+						.flex.flex-col.border.border-solid.border-gray-650.rounded-xxs.w-full
+							.flex.w-full
 								table.w-full.text-sm.text-left
 									thead.sticky.top-0.left-0.bg-white-50
 										tr
@@ -841,18 +850,26 @@ mixin table-card-supply(data)
 										tr.transition-colors.border-t.border-solid.border-gray-650
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap") #45635
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium")
-												.flex.items-center.justify-start(class="gap-2.5")
+												.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 													.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 														img(src="/images/temporary/good-img.png", alt="img")
-													span Переноска пластикова S
+													.grow.overflow-hidden.text-ellipsis
+														span.whitespace-nowrap Переноска пластикова S
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												input.h-9.border.border-solid.border-gray-650.rounded-xxs.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="0" class="w-16.25 shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]" value="100")
 											td(class="py-1.25 px-2.5 min-h-12.5 text-black-100 font-medium whitespace-nowrap")
 												.flex.items-center.justify-center
 													button.flex.items-center.justify-center.rounded-l-xss.bg-blue-200.text-gray-150.text-base.border-r.border-solid.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 border-gray-550/[.15] hover:bg-blue-200/[.8]")
 														+svg('icon-file-scan')
-													button.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
-														+svg('icon-ellipsis')
+													.dropdown.dropdown-right.relative.flex.items-center.justify-center.shrink-0(class="group/dropdown-options")
+														button.dropdown-trigger.flex.items-center.justify-center.rounded-r-xss.bg-blue-200.text-gray-150.text-base.shrink-0.transition-colors(type="button" class="w-7.5 h-7.5 hover:bg-blue-200/[.8]")
+															+svg('icon-ellipsis')
+														.dropdown-body.flex.flex-col.w-59.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+															.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати параметр
+															.flex.flex-col.p-1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 1
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
+																button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 							button.flex.items-center.justify-center.gap-2.w-full.h-10.rounded-b-md.text-gray-150.bg-blue-200.shrink-0.transition-colors(type="button" class="hover:bg-blue-200/80")
 								span.flex.items-center.justify-center.w-5.h-5.text-xl
 									+svg('icon-plus-circle')

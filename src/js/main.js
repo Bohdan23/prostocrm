@@ -77,8 +77,14 @@ if (document.querySelectorAll(".js-minimize-sidebar").length > 0) {
   };
 }
 
-//dropdowns
+//sidebar add company
+if (document.querySelectorAll(".js-sidebar-add-company").length > 0) {
+  document.querySelector(".js-sidebar-add-company").onclick = function(e) {
+    document.querySelector(".js-sidebar").classList.toggle("is-adding");
+  };
+}
 
+//dropdowns
 if (document.querySelectorAll(".dropdown-trigger").length > 0) {
   document.querySelectorAll('.dropdown-trigger').forEach(item => {
     item.onclick = function(e) {

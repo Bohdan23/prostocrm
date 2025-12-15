@@ -1,0 +1,26 @@
+extends _includes/_extends/main
+
+include _includes/components/sidebar/sidebar
+include _includes/components/bottom-mob-bar/bottom-mob-bar
+include _includes/components/tabs/tabs
+include _includes/components/navigation/navigation
+include _includes/components/table/table
+include _includes/components/table/table-card
+
+block head
+	+head({'title':'Goods'})
+
+
+block content
+	.w-full.h-svh(class="py-2.5")
+		.mx-auto.h-full.max-w-480(class="px-2.5")
+			.flex.flex-col.h-full(class="lg:flex-row lg:items-start lg:justify-start lg:gap-5")
+				+sidebar()
+				.flex.grow.w-full.overflow-hidden(class="lg:w-auto lg:h-full")
+					.flex.flex-col.w-full
+						+tabs({icon: 'icon-book-image', tab_text: 'Товари'})
+						+navigation()
+						.flex.grow.overflow-hidden(class="gap-2.5")
+							+table-list-goods-fb()
+							+table-card-goods()
+				+bottom-mob-bar()
