@@ -44,7 +44,7 @@ module.exports = {
           300: '#336695',
           350: '#F7F8FD',
           400: '#5874EE',
-          900: '#D3D2E9'
+          450: '#D3D2E9'
         },
         'green': {
           50: '#EAFFEF',
@@ -212,12 +212,6 @@ module.exports = {
         'calendar-picker': "url('../images/svg/calendar.svg')",
         'analytics-decoration': "url('../images/svg/analytics-decoration.svg')",
         'sidebar-fill': 'linear-gradient(180deg, #E7E9EF 0%, #FAFBFF 87%)',
-      },
-      backgroundPosition: {
-      },
-      backgroundSize: {
-      },
-      dropShadow: {
       },
       boxShadow: {
         'xxxs': '0 1px 2px 0 rgba(0, 0, 0, 0.3)',
