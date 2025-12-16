@@ -8,21 +8,6 @@
 
     // global styles
     .icon {
-        @apply inline-block stroke-0 stroke-current fill-current;
-        width: 1em;
-        height: 1em;
-    }
-
-    // tab styles
-    .tab {
-        @apply before:content-[''] before:block before:w-2.5 before:h-2.5 before:absolute before:bottom-0 before:right-full before:bg-tab-corner before:bg-contain before:bg-no-repeat before:pointer-events-none after:content-[''] after:block after:absolute after:pointer-events-none after:left-full;
-    }
-
-    .tab:not(.is-active) {
-        @apply before:opacity-0 after:w-px after:h-3.75 after:bg-gray-500 after:top-[50%] after:-translate-y-[50%];
-    }
-
-    .tab.is-active {
-        @apply bg-white-50 border-gray-500 before:opacity-100 after:top-[initial] after:translate-y-0 after:w-2.5 after:h-2.5 after:bottom-0 after:bg-tab-corner after:bg-contain after:bg-no-repeat after:scale-x-[-1];
+        @apply inline-block stroke-0 stroke-current fill-current w-[1em] h-[1em];
     }
 }

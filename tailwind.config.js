@@ -43,6 +43,7 @@ module.exports = {
           250: '#e7f0f7',
           300: '#336695',
           350: '#F7F8FD',
+          400: '#5874EE',
           900: '#D3D2E9'
         },
         'green': {
@@ -126,6 +127,7 @@ module.exports = {
         35: '8.75rem', // 140px
         35.25: '8.8125rem', // 141px
         36: '9rem', // 144px
+        37: '9.25rem', // 148px
         37.5: '9.375rem', // 150px
         38: '9.5rem', // 152px
         38.5: '9.625rem', // 154px
@@ -206,6 +208,7 @@ module.exports = {
         'sidebar-list-item': "url('../images/svg/table-vector.svg')",
         'sidebar-list-item-last': "url('../images/svg/table-vector-last.svg')",
         'tab-corner': "url('../images/svg/tab-corner.svg')",
+        'tab-corner-blue': "url('../images/svg/tab-corner-blue.svg')",
         'calendar-picker': "url('../images/svg/calendar.svg')",
         'analytics-decoration': "url('../images/svg/analytics-decoration.svg')",
         'sidebar-fill': 'linear-gradient(180deg, #E7E9EF 0%, #FAFBFF 87%)',

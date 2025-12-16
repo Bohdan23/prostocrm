@@ -29,7 +29,7 @@ mixin relationships(data)
 							span.font-medium.text-xss Товари та категорії
 						.flex.flex-wrap.items-start.justify-start(class="gap-1.25")
 							+rel-button({text: "Прив'язка до магазинів (1)"})
-							+rel-button({text: "Набори товарів (1)"})
+							+rel-button-filtered({text: "Набори товарів (1)"})
 							+rel-button({text: "Відвантаження (4)"})
 					.flex.flex-col.items-start.justify-start(class="gap-2.5")
 						.flex.items-center.justify-start.text-gray-150(class="gap-1.25")
@@ -37,7 +37,7 @@ mixin relationships(data)
 								+svg('icon-database-zap')
 							span.font-medium.text-xss Продажі
 						.flex.flex-wrap.items-start.justify-start(class="gap-1.25")
-							+rel-button({text: "Позиції у продажах  (12)"})
+							+rel-button-filtered({text: "Позиції у продажах  (12)"})
 							+rel-button({text: "Повернення (1)"})
 
 mixin filter-piece(data)
@@ -47,7 +47,21 @@ mixin filter-piece(data)
 		span!= data.text
 		
 mixin rel-button(data)
-	button.flex.items-center.justify-center.h-9.px-2.rounded-md.gap-2.border.border-solid.border-gray-650.bg-white-50.shadow-xss.outline-none.transition-all(type="button" class="focus:outline-none hover:bg-gray-500 hover:shadow-none")
-		span.flex.items-center.justify-center.w-4.h-4.text-black-50.text-base
-			+svg('icon-connections')
-		span.text-black-100.text-xs!= data.text
+	.flex.flex-col.items-start.justify-start.p-2.rounded-md.border.border-solid.border-gray-650.bg-white-50.shadow-xss.outline-none.transition-all
+		.flex.items-center.justify-start.gap-2
+			span.flex.items-center.justify-center.w-4.h-4.text-black-50.text-base
+				+svg('icon-connections')
+			span.text-black-100.text-xs!= data.text
+
+mixin rel-button-filtered(data)
+	.flex.flex-col.items-start.justify-start.p-2.rounded-md.border.border-solid.border-gray-650.bg-white-50.shadow-xss.outline-none.transition-all
+		.flex.items-center.justify-start.gap-2
+			span.flex.items-center.justify-center.w-4.h-4.text-black-50.text-base
+				+svg('icon-connections')
+			span.text-black-100.text-xs!= data.text
+		.flex.flex-col.items-start.justify-start.gap-2.pt-2.mt-2.border-t.border-solid.border-gray-650
+			+filter-piece({icon: 'icon-filter', text: 'Магазин: “єЄкомерс”'})
+			+filter-piece({icon: 'icon-filter', text: 'Магазин: “КітПес”'})
+
+
+

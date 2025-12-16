@@ -126,16 +126,35 @@ if (document.querySelectorAll(".js-relationships-close").length > 0) {
 //table open details
 if (document.querySelectorAll(".js-table-info-open").length > 0) {
   document.querySelector(".js-table-info-open").onclick = function(e) {
-    document.querySelector(".js-table").classList.add("is-active");
+    document.querySelector(".js-table").classList.add("table-minimized");
     document.querySelector(".js-table-info").classList.add("is-active");
-    this.classList.add('is-selected');
+    this.closest('tr').classList.add('is-selected');
   };
   document.querySelector(".js-table-info-close").onclick = function(e) {
-    document.querySelector(".js-table").classList.remove("is-active");
+    document.querySelector(".js-table").classList.remove("table-minimized");
     document.querySelector(".js-table-info").classList.remove("is-active");
-    document.querySelector(".js-table-info-open.is-selected").classList.remove("is-selected");
+    document.querySelector("tr.is-selected").classList.remove("is-selected");
   };
 }
+
+// search input dropdown
+function updateSearchState(input) {
+  const wrapper = input.closest('.js-search-wrapper');
+  if (!wrapper) return;
+  wrapper.classList.toggle('is-active', input.value.trim().length > 0);
+}
+
+document.querySelectorAll('.js-input-search').forEach((inp) => {
+  updateSearchState(inp);
+  inp.addEventListener('input', () => updateSearchState(inp));
+});
+
+// select checkbox in table
+const tableCheckbox = document.getElementById('checkbox_2');
+
+tableCheckbox.addEventListener('change', () => {
+  document.querySelector('.js-table').classList.toggle('rows-selected', tableCheckbox.checked);
+});
 
 //popover
 // function setPopoverPosition(triggerElem, targetElem) {

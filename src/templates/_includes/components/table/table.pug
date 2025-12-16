@@ -1,10 +1,14 @@
 mixin pager(data)
 	.flex.items-center.justify-between.mt-auto(class="gap-1 lg:gap-2.5 pl-2.5")
-		.text-sm.text-gray-250(class="lg:[.is-active_&]:hidden") 0 з 100 рядків обрано
-		.flex.items-center.justify-start.gap-8(class="lg:[.is-active_&]:justify-between lg:[.is-active_&]:grow")
-			.hidden.items-center.justify-start.gap-2(class="lg:flex lg:[.is-active_&]:hidden")
+		.text-sm.text-gray-250(class="lg:group-[.table-minimized]/table:hidden") 0 з 100 рядків обрано
+		.flex.items-center.justify-start.gap-8(class="lg:group-[.table-minimized]/table:justify-between lg:group-[.table-minimized]/table:grow")
+			.hidden.items-center.justify-start.gap-2(class="lg:flex lg:group-[.table-minimized]/table:hidden")
 				.font-medium.text-sm.text-black-50 Рядків на сторінку:
-			.flex.items-center.justify-start(class="lg:gap-8 lg:[.is-active_&]:grow lg:[.is-active_&]:justify-between lg:[.is-active_&]:gap-2")
+				button.flex.items-center.justify-center.h-9.px-3.rounded-md.border.border-solid.border-gray-650(type="button" class="gap-2.5")
+					span.text-black-100.text-sm 10
+					span.flex.items-center.justify-center.shrink-0.w-4.h-4.text-base(class="text-black-100/50")
+						+svg('icon-chevrons')
+			.flex.items-center.justify-start(class="lg:gap-8 lg:group-[.table-minimized]/table:grow lg:group-[.table-minimized]/table:justify-between lg:group-[.table-minimized]/table:gap-2")
 				.hidden.font-medium.text-sm.text-black-50(class="lg:flex") Сторінка 1 з 10
 				.flex.items-center.justify-start.gap-2
 					button.flex.items-center.justify-center.w-8.h-8.rounded-md.border.border-solid.border-gray-650.text-black-100.text-base.shrink-0(type="button")
@@ -18,18 +22,29 @@ mixin pager(data)
 
 mixin filters(data)
 	.dropdown.flex.flex-col.items-start.justify-start.w-full(class="group/dropdown-analytics gap-2.5")
-		.flex.items-center.justify-between.w-full(class="gap-2.5")
+		.flex.items-center.justify-between.w-full.relative(class="gap-2.5")
 			.flex.items-center.justify-start.grow(class="gap-2.5")
-				.hidden.justify-center.items-center.realtive(class="lg:flex lg:[.is-active_&]:hidden")
+				.hidden.justify-center.items-center.realtive(class="lg:flex lg:group-[.table-minimized]/table:hidden")
 					button.dropdown-trigger.flex.items-center.justify-center.shrink-0.w-10.h-10.border.border-solid.border-gray-650.rounded-t-md.rounded-b-md.text-xl.text-black-50.shadow-xss.transition-all.relative(type="button" class="hover:shadow-none group-[.is-opened]/dropdown-analytics:bg-gray-1000 group-[.is-opened]/dropdown-analytics:shadow-none group-[.is-opened]/dropdown-analytics:border-gray-1000 group-[.is-opened]/dropdown-analytics:transition-none group-[.is-opened]/dropdown-analytics:rounded-b-none after:content-[''] after:absolute after:flex after:w-10 after:h-3 after:top-full after:-left-0.25 after:opacity-0 after:pointer-events-none after:bg-gray-1000 group-[.is-opened]/dropdown-analytics:after:opacity-100 before:content-[''] before:flex before:absolute before:w-3.75 before:h-3.75 before:top-full before:left-full before:pointer-events-none before:bg-analytics-decoration before:opacity-0 before:bg-contain before:bg-no-repeat group-[.is-opened]/dropdown-analytics:before:opacity-100")
 						+svg('icon-pie-chart')
-				input.w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-colors(type="text" placeholder="Пошук..." class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0] max-w-37.5 sm:max-w-50 md:max-w-57.5 lg:max-w-62.5 lg:[.is-active_&]:max-w-[calc(100%_-_50px)]")
-				.dropdown.flex.items-center.justify-center.relative(class="group/dropdown-filters")
+				.js-search-wrapper.relative.w-full.is-active(class="group/search max-w-37.5 sm:max-w-50 md:max-w-57.5 lg:max-w-62.5 lg:group-[.table-minimized]/table:max-w-[calc(100%_-_50px)]")
+					input.js-input-search.w-full.max-w-full.h-10.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-colors(type="text" placeholder="Пошук..." class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.absolute.w-full.flex.max-h-42.rounded-md.bg-white-50.shadow-dropdown.opacity-0.p-1.pointer-events-none.z-40.transition-all(class="top-[calc(100%_+_4px)] -translate-y-1 group-[.is-active]/search:opacity-100 group-[.is-active]/search:translate-y-0 group-[.is-active]/search:pointer-events-auto")
+						.flex.flex-col.items-start.justify-start.w-full.max-h-full.overflow-hidden.overflow-y-auto
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Назва
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") SKU
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Оплата
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Категорія
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Виробник
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Оплата
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Категорія
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Виробник
+				.dropdown.flex.items-center.justify-center(class="group/dropdown-filters md:relative")
 					button.dropdown-trigger.flex.items-center.justify-center.shrink-0.w-10.h-10.border.border-solid.border-gray-650.rounded-md.shadow-xss.transition-shadow(type="button" class="hover:shadow-none")
 						span.flex.items-center.justify-center.w-5.h-5.text-xl.text-black-50.relative
 							+svg('icon-filter')
 							span.w-4.h-4.rounded-full.absolute.z-10.bg-black-150.flex.items-center.justify-center.font-medium.text-white-50.text-xs(class="-top-2 -right-2") 4
-					.dropdown-body.flex.flex-col.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="w-[calc(100vw_-_42px)] sm:w-137.5 -left-40 lg:-left-42 xl:left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-top]/dropdown-filters:top-auto group-[.dropdown-top]/dropdown-filters:bottom-[calc(100%_+_5px)] group-[.dropdown-right]/dropdown-filters:left-auto group-[.dropdown-right]/dropdown-filters:-right-40 lg:group-[.dropdown-right]/dropdown-filters:-right-42 xl:group-[.dropdown-right]/dropdown-filters:right-0 group-[.is-opened]/dropdown-filters:opacity-100 group-[.is-opened]/dropdown-filters:translate-y-0 group-[.is-opened]/dropdown-filters:pointer-events-auto")
+					.dropdown-body.flex.flex-col.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="w-[calc(100vw_-_42px)] md:w-137.5 left-0 md:-left-40 lg:-left-42 xl:left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.dropdown-top]/dropdown-filters:top-auto group-[.dropdown-top]/dropdown-filters:bottom-[calc(100%_+_5px)] group-[.dropdown-right]/dropdown-filters:left-auto group-[.dropdown-right]/dropdown-filters:-right-40 lg:group-[.dropdown-right]/dropdown-filters:-right-42 xl:group-[.dropdown-right]/dropdown-filters:right-0 group-[.is-opened]/dropdown-filters:opacity-100 group-[.is-opened]/dropdown-filters:translate-y-0 group-[.is-opened]/dropdown-filters:pointer-events-auto")
 						.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Фільтри
 						.flex.flex-col.items-start.p-2(class="gap-2.5")
 							.flex.items-center.justify-start.gap-2.w-full
@@ -43,7 +58,14 @@ mixin filters(data)
 								button.flex.items-center.justify-center.w-9.h-9.rounded-md.shrink-0.bg-white-200.transition-colors.text-black-150.text-xl(type="button" class="hover:bg-gray-200")
 									+svg('icon-bucket')
 							.flex.items-center.justify-start.gap-2.w-full
-								input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Колір" class="shadow-input w-32.5 sm:w-35 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+								.js-search-wrapper.relative.shrink-0(class="w-32.5 sm:w-35 group/search")
+									input.js-input-search.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-colors(type="text" placeholder="Колір" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+									.absolute.w-full.flex.max-h-42.rounded-md.bg-white-50.shadow-dropdown.opacity-0.p-1.pointer-events-none.transition-all(class="top-[calc(100%_+_4px)] -translate-y-1 group-[.is-active]/search:opacity-100 group-[.is-active]/search:translate-y-0 group-[.is-active]/search:pointer-events-auto")
+										.flex.flex-col.items-start.justify-start.w-full.max-h-full.overflow-hidden.overflow-y-auto
+											button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Жовтий 
+											button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Зелений
+											button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Чорний
+											button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Червоний
 								.flex.flex-wrap.items-center.justify-start.grow.min-h-9.border.border-solid.border-gray-650.rounded-md.px-2.gap-2.shadow-input(class="py-1.5")
 									button.flex.items-center.justify-center.h-6.rounded-md.text-black-100.text-xs.font-medium.bg-white-200.shrink-0.transition-colors(type="button" class="hover:bg-gray-200")
 										span.flex.h-full.py-1.pl-2.pr-1 Блакитний
@@ -70,7 +92,11 @@ mixin filters(data)
 								span.flex.items-center.justify-center.shrink-0.w-4.h-4.text-black-150.text-base
 									+svg('icon-plus-circle')
 								span.text-black-100.text-sm.font-medium Додати фільтр
-			.flex.items-center.justify-start(class="gap-2.5 lg:[.is-active_&]:hidden")
+				button.hidden.items-center.justify-start.gap-2.h-10.px-2.border.border-solid.border-gray-650.rounded-md.shadow-xss.transition-shadow(type="button" class="hover:shadow-none xl:flex xl:group-[.table-minimized]/table:hidden")
+					span.flex.items-center.justify-center.w-5.h-5.text-xl.text-black-150.relative
+						+svg('icon-calendar-days')
+					span.text-sm.font-medium.text-black-50 06 Чер - 03 Лип, 2025
+			.flex.items-center.justify-start(class="gap-2.5 lg:group-[.table-minimized]/table:hidden")
 				.dropdown.dropdown-right.flex.items-center.justify-center.relative(class="group/dropdown-columns")
 					button.dropdown-trigger.flex.items-center.justify-center.shrink-0.w-10.h-10.border.border-solid.border-gray-650.rounded-md.text-xl.text-black-50.shadow-xss.transition-shadow(type="button" class="hover:shadow-none")
 						+svg('icon-good-settings')
@@ -107,21 +133,21 @@ mixin filters(data)
 							span.flex.items-center.justify-center.text-xs.shrink-0.rotate-90.transition-transform(class="group-[.is-opened]/dropdown-list:rotate-[270deg]")
 								+svg('icon-chevron')
 					.dropdown-body.flex.flex-col.w-full.rounded-md.border.border-solid.border-gray-650.p-1.absolute.bg-white-50.opacity-0.shadow-dropdown.pointer-events-none.transition-all.z-40(class="left-1/2 -translate-x-1/2 -translate-y-1 top-[calc(100%_+_5px)] group-[.dropdown-top]/dropdown-list:top-auto group-[.dropdown-top]/dropdown-list:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-list:opacity-100 group-[.is-opened]/dropdown-list:translate-y-0 group-[.is-opened]/dropdown-list:pointer-events-auto")
-						button.is-checked.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
+						button.is-checked.flex.items-center.justify-between.w-full.gap-2(type="button" class="group/button py-1.5 px-2")
 							span.text-sm.text-black-100 усього
-							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
+							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="group-[.is-checked]/button:opacity-100")
 								+svg('icon-checkmark')
-						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
+						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="group/button py-1.5 px-2")
 							span.text-sm.text-black-100 середнє
-							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
+							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="group-[.is-checked]/button:opacity-100")
 								+svg('icon-checkmark')
-						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
+						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="group/button py-1.5 px-2")
 							span.text-sm.text-black-100 максимум
-							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
+							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="group-[.is-checked]/button:opacity-100")
 								+svg('icon-checkmark')
-						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
+						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="group/button py-1.5 px-2")
 							span.text-sm.text-black-100 мінімум
-							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
+							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="group-[.is-checked]/button:opacity-100")
 								+svg('icon-checkmark')
 			.flex.items-center.justify-center.bg-gray-500.rounded.p-px
 				.dropdown.flex.flex-col.items-start.justify-start.bg-white-50.relative.rounded-ss-sxs.rounded-es-sxs(class="group/dropdown-list h-14.5 min-w-33.5 px-2.5 py-1.25")
@@ -133,21 +159,21 @@ mixin filters(data)
 							span.flex.items-center.justify-center.text-xs.shrink-0.rotate-90.transition-transform(class="group-[.is-opened]/dropdown-list:rotate-[270deg]")
 								+svg('icon-chevron')
 					.dropdown-body.flex.flex-col.w-full.rounded-md.border.border-solid.border-gray-650.p-1.absolute.bg-white-50.opacity-0.shadow-dropdown.pointer-events-none.transition-all.z-40(class="left-1/2 -translate-x-1/2 -translate-y-1 top-[calc(100%_+_5px)] group-[.dropdown-top]/dropdown-list:top-auto group-[.dropdown-top]/dropdown-list:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-list:opacity-100 group-[.is-opened]/dropdown-list:translate-y-0 group-[.is-opened]/dropdown-list:pointer-events-auto")
-						button.is-checked.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
+						button.is-checked.flex.items-center.justify-between.w-full.gap-2(type="button" class="group/button py-1.5 px-2")
 							span.text-sm.text-black-100 сума 1
-							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
+							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="group-[.is-checked]/button:opacity-100")
 								+svg('icon-checkmark')
-						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
+						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="group/button py-1.5 px-2")
 							span.text-sm.text-black-100 сума 2
-							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
+							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="group-[.is-checked]/button:opacity-100")
 								+svg('icon-checkmark')
-						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
+						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="group/button py-1.5 px-2")
 							span.text-sm.text-black-100 сума 3
-							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
+							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="group-[.is-checked]/button:opacity-100")
 								+svg('icon-checkmark')
-						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="py-1.5 px-2")
+						button.flex.items-center.justify-between.w-full.gap-2(type="button" class="group/button py-1.5 px-2")
 							span.text-sm.text-black-100 сума 4
-							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="[.is-checked_&]:opacity-100")
+							span.flex.items-center.justify-center.w-4.h-4.shrink-0.opacity-0.transition-opacity(class="group-[.is-checked]/button:opacity-100")
 								+svg('icon-checkmark')
 				button.flex.items-center.justify-center.h-full.bg-gray-500.text-sm.text-black-50.border-l.border-solid.border-gray-500.transition-colors(type="button" class="w-5.5 h-15 hover:bg-gray-300")
 					+svg('icon-bucket')
@@ -342,231 +368,233 @@ mixin table-buttons(data)
 					button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 2
 					button.flex.items-center.justify-start.min-h-8.px-2.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 hover:bg-gray-700") Параметр 3
 
-mixin table-list-goods(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
-		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
-			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
-					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
-							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
-								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Назва
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") SKU
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Категорія
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Виробиник
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
-				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
-								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
-								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
-									img(src="/images/temporary/good-img.png", alt="img")
-								.grow.overflow-hidden.text-ellipsis.min-w-15
-									span Переноска пластикова S
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") A1-001
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Переноски
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Pet Store
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
-							+table-buttons()
-		+pager()
+mixin choosed-tds-list(data)
+	.hidden.w-full.bg-white-200.sticky.left-0.top-0.z-10(class="group-[.rows-selected]/table:flex")
+		.flex.shrink-0
+			button.flex.items-center.justify-start.text-black-100.text-sm.font-medium.bg-white-200.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="pl-2.5 pr-5 gap-2.5 h-12.5 hover:bg-white-50")
+				+checkbox-item('checkbox_3', false, '', 'lg:group-[.table-minimized]/table:hidden')
+				span.text-blue-50 6 обраних
+		.dropdown.flex.shrink-0(class="group/dropdown-add w-11 sm:relative md:w-auto")
+			button.dropdown-trigger.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-1 md:px-5 w-full md:w-auto gap-2 h-12.5 hover:bg-white-50")
+				span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
+					+svg('icon-plus-circle')
+				span.hidden(class="md:inline-flex") Додати...
+			.dropdown-body.flex.flex-col.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="w-[calc(100vw_-_48px)] sm:w-137.5 left-0.5 sm:-left-22.5 md:left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.is-opened]/dropdown-add:opacity-100 group-[.is-opened]/dropdown-add:translate-y-0 group-[.is-opened]/dropdown-add:pointer-events-auto")
+				.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати до обраних:
+				.flex.flex-col.items-start.p-2(class="gap-2.5")
+					.flex.items-center.justify-start.gap-2.w-full
+						input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Категорія" class="shadow-input w-32.5 sm:w-35 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+						input.grow.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Текст" class="shadow-input min-w-2.5 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+						button.flex.items-center.justify-center.w-9.h-9.rounded-md.shrink-0.bg-white-200.transition-colors.text-black-150.text-xl(type="button" class="hover:bg-gray-200")
+							+svg('icon-bucket')
+					.flex.items-center.justify-start.gap-2.w-full
+						.js-search-wrapper.relative.shrink-0(class="w-32.5 sm:w-35 group/search")
+							input.js-input-search.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-colors(type="text" placeholder="Колір" class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+							.absolute.w-full.flex.max-h-42.rounded-md.bg-white-50.shadow-dropdown.opacity-0.p-1.pointer-events-none.transition-all(class="top-[calc(100%_+_4px)] -translate-y-1 group-[.is-active]/search:opacity-100 group-[.is-active]/search:translate-y-0 group-[.is-active]/search:pointer-events-auto")
+								.flex.flex-col.items-start.justify-start.w-full.max-h-full.overflow-hidden.overflow-y-auto
+									button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Жовтий 
+									button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Зелений
+									button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Чорний
+									button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Червоний
+						.flex.flex-wrap.items-center.justify-start.grow.min-h-9.border.border-solid.border-gray-650.rounded-md.px-2.gap-2.shadow-input(class="py-1.5")
+							button.flex.items-center.justify-center.h-6.rounded-md.text-black-100.text-xs.font-medium.bg-white-200.shrink-0.transition-colors(type="button" class="hover:bg-gray-200")
+								span.flex.h-full.py-1.pl-2.pr-1 Блакитний
+								span.flex.items-center.justify-center.shrink-0.text-gray-900.text-xs.h-full.w-5
+									+svg('icon-close')
+							button.flex.items-center.justify-center.h-6.rounded-md.text-black-100.text-xs.font-medium.bg-white-200.shrink-0.transition-colors(type="button" class="hover:bg-gray-200")
+								span.flex.h-full.py-1.pl-2.pr-1 Жовтий
+								span.flex.items-center.justify-center.shrink-0.text-gray-900.text-xs.h-full.w-5
+									+svg('icon-close')
+						button.flex.items-center.justify-center.w-9.h-9.rounded-md.shrink-0.bg-white-200.transition-colors.text-black-150.text-xl(type="button" class="hover:bg-gray-200")
+							+svg('icon-bucket')
+					.flex.flex-col.items-center.justify-between.w-full.gap-3(class="sm:flex-row")
+						button.flex.items-center.justify-center.w-full.gap-2.bg-white-200.rounded-md.transition-colors(type="button" class="min-w-full sm:min-w-42.5 h-9 hover:bg-gray-200")
+							span.flex.items-center.justify-center.shrink-0.w-4.h-4.text-base.shrink-0
+								+svg('icon-plus-circle')
+							span.text-black-100.text-sm.font-medium Додати
+						button.flex.items-center.justify-center.w-full.gap-2.bg-blue-200.rounded-md.transition-colors(type="button" class="min-w-full sm:min-w-42.5 h-9 hover:bg-gray-200")
+							span.flex.items-center.justify-center.w-4.h-4.text-black-150.text-base.shrink-0
+								+svg('icon-checkmark')
+							span.text-black-100.text-sm.font-medium Застосувати
+		.flex.shrink-0(class="w-11 md:w-auto")
+			button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-1 md:px-5 w-full md:w-auto gap-2 h-12.5 hover:bg-white-50")
+				span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
+					+svg('icon-edit')
+				span.hidden(class="md:inline-flex") Змінити...
+		.flex.shrink-0(class="w-11 md:w-auto")
+			button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-1 md:px-5 w-full md:w-auto gap-2 h-12.5 hover:bg-white-50")
+				span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
+					+svg('icon-archive')
+				span.hidden(class="md:inline-flex") Архівувати
+		.dropdown.dropdown-right.flex.shrink-0(class="group/dropdown-options w-11 sm:relative md:w-auto")
+			button.dropdown-trigger.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-1 md:px-3.75 w-full md:w-auto gap-2 h-12.5 hover:bg-white-50")
+				span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
+					+svg('icon-ellipsis')
+			.dropdown-body.flex.flex-col.p-2.gap-1.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="left-0.5 sm:left-0 top-[calc(100%_+_5px)] w-[calc(100vw_-_48px)] sm:w-52 -translate-y-1 group-[.dropdown-right]/dropdown-options:left-auto group-[.dropdown-right]/dropdown-options:right-0.5 sm:group-[.dropdown-right]/dropdown-options:right-0 group-[.dropdown-top]/dropdown-options:top-auto group-[.dropdown-top]/dropdown-options:bottom-[calc(100%_+_5px)] group-[.is-opened]/dropdown-options:opacity-100 group-[.is-opened]/dropdown-options:translate-y-0 group-[.is-opened]/dropdown-options:pointer-events-auto")
+				.js-search-wrapper.relative.w-full.is-active(class="group/search")
+					input.js-input-search.w-full.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-50.outline-none.transition-colors(type="text" placeholder="Пошук..." class="shadow-input placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
+					.absolute.w-full.flex.max-h-42.rounded-md.bg-white-50.shadow-dropdown.opacity-0.p-1.pointer-events-none.transition-all(class="top-[calc(100%_+_4px)] -translate-y-1 group-[.is-active]/search:opacity-100 group-[.is-active]/search:translate-y-0 group-[.is-active]/search:pointer-events-auto")
+						.flex.flex-col.items-start.justify-start.w-full.max-h-full.overflow-hidden.overflow-y-auto
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Назва
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") SKU
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Оплата
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Категорія
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Виробник
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Оплата
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Категорія
+							button.flex.items-center.justify-start.w-full.text-black-100.text-sm.rounded.transition-colors(type="button" class="py-1.5 px-2 hover:bg-white-200") Виробник
+				button.flex.items-center.justify-start.gap-2.w-full.rounded-md.transition-colors(type="button" class="px-2.5 py-3.5 hover:bg-white-200")
+					span.flex.items-center.justify-center.w-5.h-5.shrink-0.text-black-150.text-xl
+						+svg('icon-bucket')
+					span.text-black-100.text-sm.font-medium Видалити
 
-mixin table-list-goods-fb(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+mixin table-list-goods(data)
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.flex-col.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
-			.flex.w-full.bg-white-200
-				.flex
-					button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="pl-2.5 pr-5 gap-2.5 h-12.5 hover:bg-white-50")
-						+checkbox-item('checkbox_3', false, '', 'lg:[.is-active_&]:hidden')
-						span.text-blue-50 6 обраних
-				.flex.dropdown.relative(class="group/dropdown-add")
-					button.dropdown-trigger.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-5 gap-2 h-12.5 hover:bg-white-50")
-						span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
-							+svg('icon-plus-circle')
-						span Додати...
-					.dropdown-body.flex.flex-col.rounded-md.border.border-solid.border-gray-650.absolute.bg-white-50.opacity-0.pointer-events-none.shadow-dropdown.transition-all.z-40(class="w-[calc(100vw_-_42px)] sm:w-137.5 -left-40 lg:-left-42 xl:left-0 top-[calc(100%_+_5px)] -translate-y-1 group-[.is-opened]/dropdown-add:opacity-100 group-[.is-opened]/dropdown-add:translate-y-0 group-[.is-opened]/dropdown-add:pointer-events-auto")
-						.flex.items-center.justify-start.rounded-t-xs.px-3.py-1.min-h-10.text-sm.text-black-100.font-semibold.border-b.border-solid.border-gray-650 Додати до обраних:
-						.flex.flex-col.items-start.p-2(class="gap-2.5")
-							.flex.items-center.justify-start.gap-2.w-full
-								input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Категорія" class="shadow-input w-32.5 sm:w-35 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
-								input.grow.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Текст" class="shadow-input min-w-2.5 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
-								button.flex.items-center.justify-center.w-9.h-9.rounded-md.shrink-0.bg-white-200.transition-colors.text-black-150.text-xl(type="button" class="hover:bg-gray-200")
-									+svg('icon-bucket')
-							.flex.items-center.justify-start.gap-2.w-full
-								input.h-9.border.border-solid.border-gray-650.rounded-md.text-black-50.px-3.text-sm.text-black-100.outline-none.transition-all(type="text" placeholder="Колір" class="shadow-input w-32.5 sm:w-35 placeholder:text-gray-250 placeholder:opacity-[1] placeholder:transition-opacity outline-none focus:border-gray-250 focus:outline-none focus:placeholder:opacity-[0]")
-								.flex.flex-wrap.items-center.justify-start.grow.min-h-9.border.border-solid.border-gray-650.rounded-md.px-2.gap-2.shadow-input(class="py-1.5")
-									button.flex.items-center.justify-center.h-6.rounded-md.text-black-100.text-xs.font-medium.bg-white-200.shrink-0.transition-colors(type="button" class="hover:bg-gray-200")
-										span.flex.h-full.py-1.pl-2.pr-1 Блакитний
-										span.flex.items-center.justify-center.shrink-0.text-gray-900.text-xs.h-full.w-5
-											+svg('icon-close')
-									button.flex.items-center.justify-center.h-6.rounded-md.text-black-100.text-xs.font-medium.bg-white-200.shrink-0.transition-colors(type="button" class="hover:bg-gray-200")
-										span.flex.h-full.py-1.pl-2.pr-1 Жовтий
-										span.flex.items-center.justify-center.shrink-0.text-gray-900.text-xs.h-full.w-5
-											+svg('icon-close')
-								button.flex.items-center.justify-center.w-9.h-9.rounded-md.shrink-0.bg-white-200.transition-colors.text-black-150.text-xl(type="button" class="hover:bg-gray-200")
-									+svg('icon-bucket')
-							.flex.flex-col.items-center.justify-between.w-full.gap-3(class="sm:flex-row")
-								button.flex.items-center.justify-center.w-full.gap-2.bg-white-200.rounded-md.transition-colors(type="button" class="min-w-full sm:min-w-42.5 h-9 hover:bg-gray-200")
-									span.flex.items-center.justify-center.shrink-0.w-4.h-4.text-base.shrink-0
-										+svg('icon-plus-circle')
-									span.text-black-100.text-sm.font-medium Додати
-								.flex.items-center.justify-between.border-b.border-solid.border-gray-500(class="py-2.5 gap-2.5")
-								button.flex.items-center.justify-center.w-full.gap-2.bg-blue-200.rounded-md.transition-colors(type="button" class="min-w-full sm:min-w-42.5 h-9 hover:bg-gray-200")
-									span.flex.items-center.justify-center.w-4.h-4.text-black-150.text-base.shrink-0
-										+svg('icon-checkmark')
-									span.text-black-100.text-sm.font-medium Застосувати
-				.flex
-					button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-5 gap-2 h-12.5 hover:bg-white-50")
-						span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
-							+svg('icon-edit')
-						span Змінити...
-				.flex
-					button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-5 gap-2 h-12.5 hover:bg-white-50")
-						span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
-							+svg('icon-archive')
-						span Архівувати
-				.flex
-					button.flex.items-center.justify-center.text-black-100.text-sm.font-medium.bg-white-200.shrink-0.border-r.border-solid.border-gray-650.relative.transition-colors(type="button" class="px-3.75 gap-2 h-12.5 hover:bg-white-50")
-						span.flex.items-center.justify-center.shrink-0.w-5.h-5.text-xl
-							+svg('icon-ellipsis')
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.relative.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
+					tr
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
-								spant #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
+								span ID
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Назва
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") SKU
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Категорія
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Виробиник
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Статус
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+				tbody
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
+							.flex.items-center.justify-start(class="gap-2.5")
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
+								span #45635
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full")
 							.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 									img(src="/images/temporary/good-img.png", alt="img")
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Переноска пластикова S
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") A1-001
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Переноски
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Pet Store
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") A1-001
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Переноски
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Pet Store
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
 		+pager()
 
 mixin table-list-orders(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Дата
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Виробник
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Товари
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Сума
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Оплачено
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Відвантаження
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Дата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Виробник
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Товари
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Сума
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Оплачено
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Статус
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Відвантаження
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full")
 							.grid.grid-flow-col.items-center.justify-start
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Pet store
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-1.25")
 								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl
 									+svg('icon-view')
 								span.font-medium.text-sm.text-black-100 5
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 16800 #[span.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 16800 #[span.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 16800 #[span.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 16800 #[span.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-blue-250.rounded-md.text-blue-300.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Відвантажено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_3', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_3', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full") 
 							.grid.grid-flow-col
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Aquarium Supplies
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-1.25")
 								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl
 									+svg('icon-view')
 								span.font-medium.text-sm.text-black-100 5
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 16800 #[span.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 16800 #[span.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 16800 #[span.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 16800 #[span.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-blue-250.rounded-md.text-blue-300.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-orange-50.rounded-md.text-orange-100.font-medium(class="px-2 py-0.5 min-w-32.5") Очікується
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
 		+pager()
 
 mixin table-list-orders-goods(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Назва
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Категорія
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Кількість
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Сума,грн
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Оплачено
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Відвантаження
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Назва
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Категорія
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Кількість
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Сума,грн
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Оплачено
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Статус
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Відвантаження
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full")
 							.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 									img(src="/images/temporary/good-img.png", alt="img")
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Переноска пластикова S
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Переноски
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 100
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 16 800 #[span.text-xs.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 16 800 #[span.text-xs.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Переноски
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 100
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 16 800 #[span.text-xs.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 16 800 #[span.text-xs.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Відвантажено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
@@ -574,314 +602,321 @@ mixin table-list-orders-goods(data)
 		+pager()
 
 mixin table-list-customers(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Ім'я
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Тип
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Email
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Телефон
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Адреса
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Дата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Ім'я
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Тип
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Email
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Телефон
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Адреса
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Дата
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Олена Коваль
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Фіз.особа
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") olena@example.com
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") +380501234657
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full") Олена Коваль
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Фіз.особа
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") olena@example.com
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") +380501234657
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.flex-col.items-start.justify-start
 								span Київ
 								span.text-gray-900 вул. Саксаганського, 12
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
 		+pager()
 
 mixin table-list-shipment(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Продаж ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Дата
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Магазин
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Позиції
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Зібрано
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Продаж ID
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Дата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Магазин
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Позиції
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Зібрано
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Статус
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") #45635
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full") 
 							.grid.grid-flow-col.items-center.justify-start
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Pet Store
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-1.25")
 								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl
 									+svg('icon-view')
 								span.font-medium.text-sm.text-black-100 3
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-1.25")
 								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl
 									+svg('icon-view')
 								span.font-medium.text-sm.text-black-100 3
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Завершено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Aquarium Supplies
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") #45635
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full") Aquarium Supplies
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-1.25")
 								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl
 									+svg('icon-view')
 								span.font-medium.text-sm.text-black-100 3
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-1.25")
 								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl
 									+svg('icon-view')
 								span.font-medium.text-sm.text-black-100 3
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-orange-50.rounded-md.text-orange-100.font-medium(class="px-2 py-0.5 min-w-32.5") В процесі
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
 		+pager()
 
 mixin table-list-sales(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Дата
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Магазин
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Позиції
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Сума
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Оплата
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Менеджер
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Дата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Магазин
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Позиції
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Сума
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Оплата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Менеджер
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full") 
 							.grid.grid-flow-col.items-center.justify-start
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Grooming Products
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-1.25")
 								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl
 									+svg('icon-view')
 								span.font-medium.text-sm.text-black-100 3
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 16 800 #[span.text-xs.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 16 800 #[span.text-xs.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Оплачено
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Іван Петров
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Іван Петров
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
 		+pager()
 
 mixin table-list-inventory(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Дата
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Склад
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Позиції
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Відхилення
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Відповідальний
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Дата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Склад
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Позиції
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Відхилення
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Статус
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Відповідальний
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #001
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Головний склад
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full") Головний склад
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-1.25")
 								.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl
 									+svg('icon-view')
 								span.font-medium.text-sm.text-black-100 5
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") -3 #[span.text-xs.text-gray-900 од.]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") -3 #[span.text-xs.text-gray-900 од.]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Завершено
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Іван Петров
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Іван Петров
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
 		+pager()
 
 mixin table-list-production(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Товар
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") SKU
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Кількість
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Позиції
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Склад
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Дата
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Товар
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") SKU
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Кількість
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Позиції
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Склад
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Дата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Статус
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full")
 							.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 									img(src="/images/temporary/cat-food.png", alt="img")
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Корм для котів фасований 1 кг
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") A1-001
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 2
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 2
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Головний склад
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") A1-001
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 2
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 2
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Головний склад
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Завершено
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
 		+pager()
 
 mixin table-list-product-sets(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Назва набору
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") SKU
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Товари
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Ціна
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Магазин
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Статус
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Назва набору
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") SKU
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Товари
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Ціна
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Магазин
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Статус
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #45635
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full")
 							.grid.grid-flow-col.items-center.justify-start(class="gap-2.5")
 								.flex.items-center.justify-center.w-10.h-10.border.border-solid.border-gray-650.rounded-xs.shrink-0.overflow-hidden
 									img(src="/images/temporary/good-img.png", alt="img")
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Набір шлейка і повідок
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") A1-001
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 2
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 750 #[span.text-xs.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Aquarium Supplies
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") A1-001
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 2
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 750 #[span.text-xs.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Aquarium Supplies
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Активний
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
 		+pager()
 
 mixin table-list-supply(data)
-	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="p-2.5 gap-2.5 [&.is-active]:overflow-visible [&.is-active]:hidden lg:[&.is-active]:flex lg:[&.is-active]:max-w-77.5")
+	.js-table.flex.flex-col.justify-start.grow.bg-white-50.rounded-2xl.border.border-solid.border-gray-500.overflow-hidden(class="group/table p-2.5 gap-2.5 [&.table-minimized]:overflow-visible [&.table-minimized]:hidden lg:[&.table-minimized]:flex lg:[&.table-minimized]:max-w-77.5")
 		+filters()
-		.flex.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:[.is-active_&]:overflow-hidden")
+		.flex.flex-col.grow.items-start.border.border-solid.border-gray-650.rounded-xss.overflow-auto(class="lg:group-[.table-minimized]/table:overflow-hidden")
+			+choosed-tds-list()
 			table.w-full.text-sm.text-left
-				thead.sticky.top-0.left-0.bg-white-50
+				thead.sticky.top-0.left-0.bg-white-50.z-10(class="group-[.rows-selected]/table:hidden")
 					tr
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap")
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_1', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_1', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span ID
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Дата
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Постачальник
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Склад
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Позиції
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Сума
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Оплата
-						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") Поставка
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Дата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:w-full") Постачальник
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Склад
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Позиції
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Сума
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Оплата
+						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap lg:min-w-35") Поставка
 						th.font-medium.text-gray-900(class="py-3.75 px-2.5 min-h-12.5 whitespace-nowrap") 
 				tbody
-					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="[&.is-selected]:bg-blue-200")
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+					tr.cursor-pointer.transition-colors.border-t.border-solid.border-gray-650(class="last:border-b [&.is-selected]:bg-blue-200")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.flex.items-center.justify-start(class="gap-2.5")
-								+checkbox-item('checkbox_2', false, '', 'lg:[.is-active_&]:hidden')
+								+checkbox-item('checkbox_2', false, '', 'lg:group-[.table-minimized]/table:hidden')
 								span #001
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 24.07.25
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 24.07.25
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:w-full") 
 							.grid.grid-flow-col.items-center.justify-start
 								.grow.overflow-hidden.text-ellipsis.min-w-15
 									span Pet Store
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") Головний склад
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") Головний склад
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							button.js-popover-trigger.flex.items-center.justify-start(type="button" class="gap-1.25")
 								span.flex.items-center.justify-center.w-5.h-5.shrink-0.text-gray-150.text-xl.relative(class="group/popover")
 									+svg('icon-view')
 									+array-popover()
 								span.font-medium.text-sm.text-black-100 5
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium") 16 800 #[span.text-xs.text-gray-900 ₴]
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35") 16 800 #[span.text-xs.text-gray-900 ₴]
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-orange-50.rounded-md.text-orange-100.font-medium(class="px-2 py-0.5 min-w-32.5") Частково
-						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
+						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium lg:min-w-35")
 							.inline-flex.items-center.justify-center.bg-green-50.rounded-md.text-green-100.font-medium(class="px-2 py-0.5 min-w-32.5") Прийнято
 						td(class="py-1.25 px-2.5 min-h-12.5 whitespace-nowrap text-black-100 font-medium")
 							+table-buttons()
